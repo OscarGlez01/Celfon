@@ -15,13 +15,15 @@ public class Main {
     
     public static void main(String[] args) {
         
+        /*
         List<Estado> estados = EstadoDAO.obtenerTodos();
         
         for (Estado e : estados){
             System.out.println("Nombre "+ e.getNombre());
         }
+        */
         
-        //ClienteDAO.buscar("juan");
+        ClienteDAO.buscar("juan");
     }
     
 }
