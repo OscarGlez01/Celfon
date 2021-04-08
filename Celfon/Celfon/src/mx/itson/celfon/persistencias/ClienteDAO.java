@@ -21,13 +21,13 @@ public class ClienteDAO {
         try{
             Connection conexion= Conexion.obtener();
             if(conexion != null){
-            String consulta= "SELECT cl.id, cl.nombre, cl.direccion, cl.telefono, ci.id, ci.nombre, es.id, es.nombre FROM cliente cl" 
+            String consulta= "SELECT cl.id, cl.nombre, cl.direccion, cl.telefono, ci.id, ci.nombre, es.id, es.nombre FROM cliente cl"
                     + " INNER JOIN ciudad ci ON cl.idCiudad = ci.id"
                     + " INNER JOIN estado es ON ci.idEstado = es.id"
                     + " WHERE cl.nombre  LIKE ?";
             
             PreparedStatement st = conexion.prepareStatement(consulta);
-            st.setString(1, "&" + filtro + "%");
+            st.setString(1, "%" + filtro + "%");
             ResultSet resultset= st.executeQuery();
             while(resultset.next()){
                 Cliente cliente = new Cliente();
