@@ -11,7 +11,7 @@ import mx.itson.celfon.entidades.Cliente;
 import mx.itson.celfon.entidades.Estado;
 
 /**
- *
+ * Maneja el acceso de datos sobre la entidad Cliente
  * @author Oscar González Leyva 
  */
 public class ClienteDAO {
