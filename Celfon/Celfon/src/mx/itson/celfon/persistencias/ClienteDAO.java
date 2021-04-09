@@ -16,6 +16,11 @@ import mx.itson.celfon.entidades.Estado;
  */
 public class ClienteDAO {
     
+    /**
+     * Obtiene registros de entidad Cliente a partir de los parametros proporcionados
+     * @param filtro representa el nombre del cliente por el cual se desea buscar 
+     * @return lista de entidades Cliente 
+     */
     public static List<Cliente> buscar(String filtro){
         List<Cliente> clientes = new ArrayList<>();
         try{
