@@ -2,7 +2,7 @@
 package mx.itson.celfon.entidades;
 
 /**
- * Esta clase gestiona las variables de id y nombre de Ciudad al igual que
+ * Gestiona las variables de id y nombre de Ciudad al igual que
  * utiliza una llave foranea de la entidad de estado
  * @author Oscar Gonzalez Leyva
  */
