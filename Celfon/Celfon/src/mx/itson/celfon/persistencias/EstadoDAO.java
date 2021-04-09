@@ -14,6 +14,12 @@ import mx.itson.celfon.entidades.Estado;
  */
 public class EstadoDAO {
     
+    /**
+     * Obtiene las variables de Estado dentro de la base de datos
+     * y genera una Lista de la misma
+     * @return Devuelve los datos correctos encontrados en la base de datos 
+     * e imprime un mensaje si hubo algun error
+     */
     public static List<Estado> obtenerTodos(){
         List<Estado> estados = new ArrayList<>();
         try{
