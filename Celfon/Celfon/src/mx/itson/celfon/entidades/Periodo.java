@@ -5,7 +5,7 @@ import java.util.List;
 import mx.itson.celfon.enumeradores.EstadoPeriodo;
 
 /**
- * Esta clase gestiona las variables id, total, mes y anio de Periodo
+ * Gestiona las variables id, total, mes y anio de Periodo
  * utiliza una llave foranea  de Cliente y Estado
  * Ademas utiliza una variable Tipo lista para las llamadas
  * @author González 
