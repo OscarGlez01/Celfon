@@ -71,7 +71,7 @@ public class ClienteDAO {
             st.setString(3, telefono);
             st.setInt(4, idCiudad);
             
-            int afectados =  st.executeUpdate();
+            //int afectados =  st.executeUpdate();
             
             /*
             if(afectados==1){
