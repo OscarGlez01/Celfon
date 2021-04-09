@@ -1,18 +1,20 @@
 
 package mx.itson.celfon.entidades;
 
-import java.util.Date;
 import java.util.List;
+import mx.itson.celfon.enumeradores.EstadoPeriodo;
 
 /**
  *
- * @author osc04
+ * @author González 
  */
 public class Periodo {
     private int id;
-    private String telefono;
-    private int duracion;
-    private Date fecha;
+    private Cliente cliente;
+    private double total;
+    private int mes;
+    private int anio;
+    private EstadoPeriodo estado;
     private List<Llamada> llamadas;
 
     public int getId() {
@@ -23,35 +25,51 @@ public class Periodo {
         this.id = id;
     }
 
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public int getDuracion() {
-        return duracion;
-    }
-
-    public void setDuracion(int duracion) {
-        this.duracion = duracion;
-    }
-
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
-
     public List<Llamada> getLlamadas() {
         return llamadas;
     }
 
     public void setLlamadas(List<Llamada> llamadas) {
         this.llamadas = llamadas;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public int getMes() {
+        return mes;
+    }
+
+    public void setMes(int mes) {
+        this.mes = mes;
+    }
+
+    public int getAnio() {
+        return anio;
+    }
+
+    public void setAnio(int anio) {
+        this.anio = anio;
+    }
+
+    public EstadoPeriodo getEstado() {
+        return estado;
+    }
+
+    public void setEstado(EstadoPeriodo estado) {
+        this.estado = estado;
     }
 }
