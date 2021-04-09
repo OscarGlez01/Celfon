@@ -2,7 +2,7 @@
 package mx.itson.celfon.enumeradores;
 
 /**
- * Esta clase es un enumerador que devuelve el estado del Periodo
+ * Es un enumerador que devuelve el estado del Periodo
  * ya sea PENDIENTE, PAGADO o CANCELADO
  * @author Oscar González Leyva 
  */
@@ -17,7 +17,7 @@ public enum EstadoPeriodo {
         }
         
         /**
-         * Este metodo asignado por un valor numerico devuelve el estado de Periodo
+         * Metodo asignado por un valor numerico devuelve el estado de Periodo
          * @param valor
          * @return //Devuelve el estado de Periodo a travez de un Valor
          */
