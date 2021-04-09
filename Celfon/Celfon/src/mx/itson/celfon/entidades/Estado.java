@@ -2,7 +2,7 @@
 package mx.itson.celfon.entidades;
 
 /**
- *
+ * Esta clase gestiona las variables id y nombre de Estado
  * @author Oscar González Leyva
  */
 public class Estado {
