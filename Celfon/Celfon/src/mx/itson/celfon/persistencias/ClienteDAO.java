@@ -50,7 +50,10 @@ public class ClienteDAO {
                 clientes.add(cliente);
                 
             }
+            conexion.close();
         }
+            
+            
         }catch(Exception ex){
             System.out.println("Error"+ ex.getMessage());
         }
@@ -83,5 +86,43 @@ public class ClienteDAO {
             System.out.println("Error"+ ex.getMessage());
         }
         return estaGuardado;
+    }
+    
+    public static boolean eliminar(int id) {
+        
+        boolean eliminar = false;
+        try {
+            Connection conexion = Conexion.obtener();
+            String consulta = "DELETE FROM cliente WHERE id = ? ";
+            PreparedStatement st = conexion.prepareStatement(consulta);
+            st.setInt(1, id);
+
+            eliminar = st.executeUpdate() == 1;
+            conexion.close();
+
+        } catch (Exception ex) {
+            System.out.println("Error" + ex.getMessage());
+        }
+        return eliminar;
+    }
+
+    public static boolean editar(String nombre, String direccion, String telefono, int id) {
+        boolean editar = false;
+        try {
+            Connection conexion = Conexion.obtener();
+            String consulta = "UPDATE cliente SET nombre = ?, direccion = ?, telefono = ? WHERE ( id = ?)";
+            PreparedStatement st = conexion.prepareStatement(consulta);
+            st.setString(1, nombre);
+            st.setString(2, direccion);
+            st.setString(3, telefono);
+            st.setInt(4, id);
+
+            editar = st.executeUpdate() == 1;
+            conexion.close();
+
+        } catch (Exception ex) {
+            System.out.println("Error" + ex.getMessage());
+        }
+        return editar;
     }
 }
