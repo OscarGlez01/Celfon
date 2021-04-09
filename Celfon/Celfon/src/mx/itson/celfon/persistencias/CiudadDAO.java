@@ -9,10 +9,15 @@ import mx.itson.celfon.entidades.Ciudad;
 import mx.itson.celfon.entidades.Estado;
 
 /**
- *
+ * Maneja el acceso a datos correspondiente a la entidad Ciudad
  * @author osc04
  */
 public class CiudadDAO {
+    
+    /**
+     * 
+     * @return 
+     */
     public static List<Ciudad> obtenerTodos(){
         List<Ciudad> ciudades = new ArrayList<>();
         try{
