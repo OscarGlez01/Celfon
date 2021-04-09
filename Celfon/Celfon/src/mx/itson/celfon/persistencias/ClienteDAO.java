@@ -65,6 +65,14 @@ public class ClienteDAO {
         return clientes;
     }
     
+    /**
+     * Guarda las variables obtenidas en la base de datos
+     * @param nombre
+     * @param direccion
+     * @param telefono
+     * @param idCiudad
+     * @return Duevuelve un estado de  guardado u envia un mensaje con el error 
+     */
     public static boolean guardar(String nombre, String direccion, String telefono,int idCiudad){
         boolean estaGuardado= false;
         try{
@@ -93,6 +101,11 @@ public class ClienteDAO {
         return estaGuardado;
     }
     
+    /**
+     * Elimina por la variable id los datos guardados en la base de datos de Cliente
+     * @param id
+     * @return Duevuelve un estado eliminar u envia un mensaje con el error
+     */
     public static boolean eliminar(int id) {
         
         boolean eliminar = false;
@@ -111,6 +124,14 @@ public class ClienteDAO {
         return eliminar;
     }
 
+    /**
+     * Edita las variables de cliente dentro de la base de datos
+     * @param nombre
+     * @param direccion
+     * @param telefono
+     * @param id
+     * @return Devuelve un estado de editar u envia un mensaje con el error
+     */
     public static boolean editar(String nombre, String direccion, String telefono, int id) {
         boolean editar = false;
         try {

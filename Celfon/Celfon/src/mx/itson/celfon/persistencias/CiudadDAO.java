@@ -15,8 +15,10 @@ import mx.itson.celfon.entidades.Estado;
 public class CiudadDAO {
     
     /**
-     * 
-     * @return 
+     * Obtiene las variables de Ciudad dentro de la base de datos
+     * y genera una Lista de la misma
+     * @return Devuelve los datos correctos encontrados en la base de datos 
+     * e imprime un mensaje si hubo algun error
      */
     public static List<Ciudad> obtenerTodos(){
         List<Ciudad> ciudades = new ArrayList<>();

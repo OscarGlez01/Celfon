@@ -14,6 +14,12 @@ import mx.itson.celfon.enumeradores.EstadoPeriodo;
  * @author González
  */
 public class PeriodoDAO {
+    /**
+     * Obtiene las variables de Periodo dentro de la base de datos
+     * y genera una Lista de la misma
+     * @return Devuelve los datos correctos encontrados en la base de datos 
+     * e imprime un mensaje si hubo algun error
+     */
     public static List<Periodo> obtenerTodos(){
         List<Periodo> periodos = new ArrayList<>();
         try{
