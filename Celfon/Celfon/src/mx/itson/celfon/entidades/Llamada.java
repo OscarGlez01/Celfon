@@ -4,7 +4,7 @@ package mx.itson.celfon.entidades;
 import java.util.Date;
 
 /**
- *
+ * Esta clase gestiona las variables id, telefono, duracion y fecha de Llamada
  * @author Oscar Gonzalez Leyva
  */
 public class Llamada {
