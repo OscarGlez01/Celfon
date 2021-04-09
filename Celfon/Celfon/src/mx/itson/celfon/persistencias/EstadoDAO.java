@@ -9,7 +9,7 @@ import java.util.List;
 import mx.itson.celfon.entidades.Estado;
 
 /**
- *
+ * Maneja el acceso de datos de la entidad Estado
  * @author osc04
  */
 public class EstadoDAO {
