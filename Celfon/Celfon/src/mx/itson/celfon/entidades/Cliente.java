@@ -2,7 +2,7 @@
 package mx.itson.celfon.entidades;
 
 /**
- * Esta clase gestiona las variables id, nombre, direccion y telefono de Cliente
+ * Gestiona las variables id, nombre, direccion y telefono de Cliente
  * ademas que tiene una llave foranea de la entidad de Ciudad
  * @author Oscar González Leyva
  */
