@@ -19,7 +19,7 @@ public enum EstadoPeriodo {
         /**
          * Metodo asignado por un valor numerico devuelve el estado de Periodo
          * @param valor
-         * @return //Devuelve el estado de Periodo a travez de un Valor
+         * @return Devuelve el estado de Periodo a travez de un Valor
          */
         public static EstadoPeriodo obtenerPorNumero(int valor){
             switch(valor){
