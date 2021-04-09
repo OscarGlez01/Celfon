@@ -10,7 +10,7 @@ import mx.itson.celfon.entidades.Periodo;
 import mx.itson.celfon.enumeradores.EstadoPeriodo;
 
 /**
- *
+ * Manjea el acceso de datos de la entidad de Periodo
  * @author González
  */
 public class PeriodoDAO {
