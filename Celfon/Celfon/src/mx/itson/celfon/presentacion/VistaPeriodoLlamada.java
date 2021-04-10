@@ -9,12 +9,12 @@ package mx.itson.celfon.presentacion;
  *
  * @author González
  */
-public class Periodos_y_Llamadas extends javax.swing.JFrame {
+public class VistaPeriodoLlamada extends javax.swing.JFrame {
 
     /**
      * Creates new form Periodos_y_Llamadas
      */
-    public Periodos_y_Llamadas() {
+    public VistaPeriodoLlamada() {
         initComponents();
     }
 
@@ -60,20 +60,21 @@ public class Periodos_y_Llamadas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Periodos_y_Llamadas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaPeriodoLlamada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Periodos_y_Llamadas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaPeriodoLlamada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Periodos_y_Llamadas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaPeriodoLlamada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Periodos_y_Llamadas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaPeriodoLlamada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Periodos_y_Llamadas().setVisible(true);
+                new VistaPeriodoLlamada().setVisible(true);
             }
         });
     }

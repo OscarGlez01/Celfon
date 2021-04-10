@@ -3,6 +3,7 @@ package mx.itson.celfon.presentacion;
 
 import java.util.List;
 import mx.itson.celfon.entidades.Estado;
+import mx.itson.celfon.entidades.Cliente;
 import mx.itson.celfon.persistencias.ClienteDAO;
 import mx.itson.celfon.persistencias.EstadoDAO;
 
@@ -23,7 +24,11 @@ public class Main {
         }
         */
         
-        ClienteDAO.buscar("juan", "cl.nombre");
+        List<Cliente> clientes = ClienteDAO.buscar("","cl.nombre");
+        
+        for(Cliente c : clientes){
+            System.out.println("Nombre "+ c.getNombre());
+        }
     }
     
 }

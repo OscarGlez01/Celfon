@@ -27,6 +27,8 @@ public class Main2 extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnEstados = new javax.swing.JButton();
         btnCiudades = new javax.swing.JButton();
+        btnClientes = new javax.swing.JButton();
+        btnPeriodos = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -52,25 +54,47 @@ public class Main2 extends javax.swing.JFrame {
 
         btnCiudades.setText("Mostrar Ciudades");
 
+        btnClientes.setText("Mostrar Clientes");
+        btnClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClientesActionPerformed(evt);
+            }
+        });
+
+        btnPeriodos.setText("Mostrar Peridodos");
+        btnPeriodos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPeriodosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(btnEstados)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addComponent(btnCiudades)
-                .addGap(42, 42, 42))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnEstados)
+                    .addComponent(btnClientes))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCiudades)
+                    .addComponent(btnPeriodos))
+                .addGap(46, 46, 46))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(198, Short.MAX_VALUE)
+                .addGap(78, 78, 78)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEstados)
                     .addComponent(btnCiudades))
-                .addGap(184, 184, 184))
+                .addGap(31, 31, 31)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnClientes)
+                    .addComponent(btnPeriodos))
+                .addContainerGap(250, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -90,9 +114,19 @@ public class Main2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEstadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstadosActionPerformed
-        Estado vistaEstado = new Estado();
+        VistaEstado vistaEstado = new VistaEstado();
         vistaEstado.setVisible(true);
     }//GEN-LAST:event_btnEstadosActionPerformed
+
+    private void btnPeriodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPeriodosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPeriodosActionPerformed
+
+    private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
+        VistaCliente vistaCliente = new VistaCliente();
+        vistaCliente.setVisible(true);
+        
+    }//GEN-LAST:event_btnClientesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,7 +165,9 @@ public class Main2 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCiudades;
+    private javax.swing.JButton btnClientes;
     private javax.swing.JButton btnEstados;
+    private javax.swing.JButton btnPeriodos;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
