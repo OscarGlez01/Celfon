@@ -21,6 +21,9 @@ public class VistaCliente extends javax.swing.JFrame {
         RefrescarTabla();
     }
     
+    /**
+     * Actualiza los valores de la tabla de Cliente
+     */
     public void RefrescarTabla(){
         clientes= ClienteDAO.buscar("", "cl.nombre");
        
