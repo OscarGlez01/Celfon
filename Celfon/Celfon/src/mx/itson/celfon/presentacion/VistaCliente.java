@@ -335,6 +335,10 @@ public class VistaCliente extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
+    /**
+     * Este botón busca entidades Cliente en la lista de clientes
+     * @param evt 
+     */
     private void btnBuscarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarNombreActionPerformed
 
         clientes= ClienteDAO.buscar(txfNombre.getText(), "cl.nombre");
