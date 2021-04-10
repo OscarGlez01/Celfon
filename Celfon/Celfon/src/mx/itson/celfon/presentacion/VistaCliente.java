@@ -372,6 +372,7 @@ public class VistaCliente extends javax.swing.JFrame {
         EditarCliente editar= new EditarCliente();
         editar.setVisible(true);
         dispose();
+        
     }//GEN-LAST:event_btnEditarActionPerformed
 
     /**

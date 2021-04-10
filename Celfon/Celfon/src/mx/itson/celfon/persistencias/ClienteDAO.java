@@ -109,16 +109,15 @@ public class ClienteDAO {
      * @param id
      * @return Devuelve un estado de editar u envia un mensaje con el error
      */
-    public static boolean editar(String nombre, String direccion, String telefono, int id) {
+    public static boolean editar(String nombre, String direccion, String telefono) {
         boolean editar = false;
         try {
             Connection conexion = Conexion.obtener();
-            String consulta = "UPDATE cliente SET nombre = ?, direccion = ?, telefono = ? WHERE ( id = ?)";
+            String consulta = "UPDATE cliente SET nombre = ?, direccion = ?, telefono = ? WHERE ( nombre = ?)";
             PreparedStatement st = conexion.prepareStatement(consulta);
             st.setString(1, nombre);
             st.setString(2, direccion);
             st.setString(3, telefono);
-            st.setInt(4, id);
 
             editar = st.executeUpdate() == 1;
             conexion.close();
