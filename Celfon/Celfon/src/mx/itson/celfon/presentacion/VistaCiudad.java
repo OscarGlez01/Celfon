@@ -21,7 +21,10 @@ public class VistaCiudad extends javax.swing.JFrame {
         initComponents();
         RefrescarTabla();
     }
-
+    
+    /**
+     * Actualiza los valores de la tabla de Ciudad
+     */
     public void RefrescarTabla(){
         ciudades= CiudadDAO.obtenerTodos();
         
