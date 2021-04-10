@@ -12,12 +12,31 @@ import mx.itson.celfon.persistencias.ClienteDAO;
  */
 public class VistaCliente extends javax.swing.JFrame {
     List<Cliente> clientes;
-    
+    Main2 main = new Main2();
     /**
      * Creates new form Cliente
      */
     public VistaCliente() {
         initComponents();
+        RefrescarTabla();
+    }
+    
+    public void RefrescarTabla(){
+        clientes= ClienteDAO.buscar("", "cl.nombre");
+       
+       DefaultTableModel modelo = (DefaultTableModel) tblClientes.getModel();
+
+        modelo.setRowCount(0);
+
+        for (Cliente cliente : clientes) {
+            modelo.addRow(new Object[]{cliente.getNombre(),
+                cliente.getDireccion(),
+                cliente.getTelefono(),
+                cliente.getCiudad().getNombre(),
+                cliente.getCiudad().getEstado().getNombre(),
+                cliente.getCiudad().getEstado().getNombre()
+            });
+        }
     }
 
     /**
@@ -199,6 +218,11 @@ public class VistaCliente extends javax.swing.JFrame {
         });
 
         btnEditar.setText("Editar Cliente");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setText("Eliminar Cliente");
 
@@ -284,7 +308,7 @@ public class VistaCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txfNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfNombreActionPerformed
-        // TODO add your handling code here:
+        // Método sin uso al ser un textfield
     }//GEN-LAST:event_txfNombreActionPerformed
 
     private void btnBuscarTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarTelefonoActionPerformed
@@ -332,26 +356,19 @@ public class VistaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarNombreActionPerformed
 
     private void btnActualizarTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaActionPerformed
-       clientes= ClienteDAO.buscar("", "cl.nombre");
-       
-       DefaultTableModel modelo = (DefaultTableModel) tblClientes.getModel();
-
-        modelo.setRowCount(0);
-
-        for (Cliente cliente : clientes) {
-            modelo.addRow(new Object[]{cliente.getNombre(),
-                cliente.getDireccion(),
-                cliente.getTelefono(),
-                cliente.getCiudad().getNombre(),
-                cliente.getCiudad().getEstado().getNombre(),
-                cliente.getCiudad().getEstado().getNombre()
-            });
-        }
+       RefrescarTabla();
     }//GEN-LAST:event_btnActualizarTablaActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        main.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        EditarCliente editar= new EditarCliente();
+        editar.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     /**
      * @param args the command line arguments

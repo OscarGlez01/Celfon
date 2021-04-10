@@ -1,8 +1,6 @@
 
 package mx.itson.celfon.presentacion;
 
-import java.util.List;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -125,6 +123,7 @@ public class Main2 extends javax.swing.JFrame {
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
         VistaCliente vistaCliente = new VistaCliente();
         vistaCliente.setVisible(true);
+        dispose();
         
     }//GEN-LAST:event_btnClientesActionPerformed
 

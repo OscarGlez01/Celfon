@@ -1,7 +1,6 @@
 
 package mx.itson.celfon.presentacion;
 
-import static java.awt.image.ImageObserver.WIDTH;
 import java.util.List;
 import javax.swing.JOptionPane;
 import mx.itson.celfon.entidades.Ciudad;
@@ -218,11 +217,13 @@ public class AgregarCliente extends javax.swing.JFrame {
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
     ClienteDAO.guardar(txfNombre.getText(), txfDireccion.getText(), txfTelefono.getText(), cboxCiudad.getSelectedIndex()+1);
     JOptionPane.showMessageDialog(rootPane, "El cliente ha sido registrado");
+    vistaCliente.RefrescarTabla();
     vistaCliente.setVisible(true);
     dispose();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        vistaCliente.RefrescarTabla();
         dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 
