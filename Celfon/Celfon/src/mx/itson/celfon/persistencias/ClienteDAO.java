@@ -21,7 +21,7 @@ public class ClienteDAO {
      * @param filtro representa el nombre del cliente por el cual se desea buscar 
      * @return lista de entidades Cliente 
      */
-    public static List<Cliente> buscar(String filtro){
+    public static List<Cliente> buscar(String filtro, String criterio){
         List<Cliente> clientes = new ArrayList<>();
         try{
             Connection conexion= Conexion.obtener();
@@ -29,7 +29,7 @@ public class ClienteDAO {
             String consulta= "SELECT cl.id, cl.nombre, cl.direccion, cl.telefono, ci.id, ci.nombre, es.id, es.nombre FROM cliente cl"
                     + " INNER JOIN ciudad ci ON cl.idCiudad = ci.id"
                     + " INNER JOIN estado es ON ci.idEstado = es.id"
-                    + " WHERE cl.nombre  LIKE ?";
+                    + " WHERE "+ criterio + " LIKE ?";
             
             PreparedStatement st = conexion.prepareStatement(consulta);
             st.setString(1, "%" + filtro + "%");
@@ -66,12 +66,12 @@ public class ClienteDAO {
     }
     
     /**
-     * Guarda las variables obtenidas en la base de datos
+     * Guarda las variables obtenidas en la base de datos 
      * @param nombre
      * @param direccion
      * @param telefono
      * @param idCiudad
-     * @return Duevuelve un estado de  guardado u envia un mensaje con el error 
+     * @return Duevuelve un estado de guardado u envia un mensaje con el error 
      */
     public static boolean guardar(String nombre, String direccion, String telefono,int idCiudad){
         boolean estaGuardado= false;
@@ -102,29 +102,6 @@ public class ClienteDAO {
     }
     
     /**
-     * Elimina por la variable id los datos guardados en la base de datos de Cliente
-     * @param id
-     * @return Duevuelve un estado eliminar u envia un mensaje con el error
-     */
-    public static boolean eliminar(int id) {
-        
-        boolean eliminar = false;
-        try {
-            Connection conexion = Conexion.obtener();
-            String consulta = "DELETE FROM cliente WHERE id = ? ";
-            PreparedStatement st = conexion.prepareStatement(consulta);
-            st.setInt(1, id);
-
-            eliminar = st.executeUpdate() == 1;
-            conexion.close();
-
-        } catch (Exception ex) {
-            System.out.println("Error" + ex.getMessage());
-        }
-        return eliminar;
-    }
-
-    /**
      * Edita las variables de cliente dentro de la base de datos
      * @param nombre
      * @param direccion
@@ -151,4 +128,29 @@ public class ClienteDAO {
         }
         return editar;
     }
+    
+    /**
+     * Elimina por la variable id los datos guardados en la base de datos de Cliente
+     * @param id
+     * @return Duevuelve un estado eliminar u envia un mensaje con el error
+     */
+    public static boolean eliminar(int id) {
+        
+        boolean eliminar = false;
+        try {
+            Connection conexion = Conexion.obtener();
+            String consulta = "DELETE FROM cliente WHERE id = ? ";
+            PreparedStatement st = conexion.prepareStatement(consulta);
+            st.setInt(1, id);
+
+            eliminar = st.executeUpdate() == 1;
+            conexion.close();
+
+        } catch (Exception ex) {
+            System.out.println("Error" + ex.getMessage());
+        }
+        return eliminar;
+    }
+
+    
 }

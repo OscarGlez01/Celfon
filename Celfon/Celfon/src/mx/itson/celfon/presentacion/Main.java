@@ -23,7 +23,7 @@ public class Main {
         }
         */
         
-        ClienteDAO.buscar("juan");
+        ClienteDAO.buscar("juan", "cl.nombre");
     }
     
 }
