@@ -12,6 +12,10 @@ public enum EstadoPeriodo {
         
         private int valor;
         
+        /**
+         * Constructor que asigna un valor a los 12 estados del enumerador
+         * @param valor índice entero que se le asigna a un estado
+         */
         EstadoPeriodo(int valor){
             this.valor = valor;
         }

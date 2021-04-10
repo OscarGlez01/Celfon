@@ -2,7 +2,7 @@
 package mx.itson.celfon.enumeradores;
 
 /**
- *
+ * Este enumerador indica el mes al que un periodo pertenece
  * @author Oscar González Leyva
  */
 public enum MesPeriodo {
@@ -10,10 +10,19 @@ public enum MesPeriodo {
     
     private int valor;
         
+    /**
+     * Constructor que asigna un valor a los 12 estados del enumerador  
+     * @param valor índice entero que se le asigna a un estado
+     */
         MesPeriodo(int valor){
             this.valor = valor;
         }
     
+    /**
+     * Este método determina el estado del enumerador por medio de un valor numérico o índice.
+     * @param valor índice introducido por el usuario 
+     * @return Devuelve el estado del enumerador indicado por el índice proporcionado
+     */
     public static MesPeriodo obtenerPorNumero(int valor){
             switch(valor){
                 case 1:

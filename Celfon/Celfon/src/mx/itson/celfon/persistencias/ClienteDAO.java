@@ -129,7 +129,7 @@ public class ClienteDAO {
     
     /**
      * Elimina por la variable id los datos guardados en la base de datos de Cliente
-     * @param id
+     * @param nombre nombre del cliente
      * @return Duevuelve un estado eliminar u envia un mensaje con el error
      */
     public static boolean eliminar(String nombre) {

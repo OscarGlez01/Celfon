@@ -6,8 +6,8 @@ import mx.itson.celfon.enumeradores.EstadoPeriodo;
 
 /**
  * Gestiona las variables id, total, mes y anio de Periodo
- * utiliza una llave foranea  de Cliente y Estado
- * Ademas utiliza una variable Tipo lista para las llamadas
+ * Utiliza una llave foranea  de Cliente y Estado
+ * Utiliza una variable Tipo lista para las llamadas
  * @author González 
  */
 public class Periodo {
