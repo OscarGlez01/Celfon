@@ -77,7 +77,7 @@ public class ClienteDAO {
         boolean estaGuardado= false;
         try{
             Connection conexion= Conexion.obtener();
-            String consulta= "INSERT INTO cliente (nombre, direccion telefono, idCiudad) VALUES (?, ?, ?, ?)";
+            String consulta= "INSERT INTO cliente (nombre, direccion, telefono, idCiudad) VALUES (?, ?, ?, ?)";
             PreparedStatement st= conexion.prepareStatement(consulta);
             st.setString(1, nombre);
             st.setString(2, direccion);

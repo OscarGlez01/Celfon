@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package mx.itson.celfon.presentacion;
 
 import java.util.List;
@@ -12,7 +8,7 @@ import mx.itson.celfon.persistencias.ClienteDAO;
 
 /**
  *
- * @author González
+ * @author Oscar González Leyva
  */
 public class VistaCliente extends javax.swing.JFrame {
     List<Cliente> clientes;
@@ -312,6 +308,7 @@ public class VistaCliente extends javax.swing.JFrame {
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         AgregarCliente agregar = new AgregarCliente();
         agregar.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnBuscarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarNombreActionPerformed

@@ -2,6 +2,10 @@
 package mx.itson.celfon.presentacion;
 
 import static java.awt.image.ImageObserver.WIDTH;
+import java.util.List;
+import javax.swing.JOptionPane;
+import mx.itson.celfon.entidades.Ciudad;
+import mx.itson.celfon.persistencias.CiudadDAO;
 import mx.itson.celfon.persistencias.ClienteDAO;
 
 /**
@@ -9,12 +13,18 @@ import mx.itson.celfon.persistencias.ClienteDAO;
  * @author Oscar González Leyva
  */
 public class AgregarCliente extends javax.swing.JFrame {
-
+    List<Ciudad> ciudades;
+    VistaCliente vistaCliente= new VistaCliente();
+    
     /**
      * Creates new form BuscarCliente
      */
     public AgregarCliente() {
         initComponents();
+        ciudades= CiudadDAO.obtenerTodos();
+        for (Ciudad ciudad : ciudades) {
+            cboxCiudad.addItem(ciudad.getNombre());
+        }
     }
 
     /**
@@ -117,6 +127,11 @@ public class AgregarCliente extends javax.swing.JFrame {
         });
 
         btnRegresar.setText("Regresar al menú Cliente");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -201,8 +216,15 @@ public class AgregarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_txfNombreActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-    ClienteDAO.guardar(txfNombre.getText(), txfDireccion.getText(), txfTelefono.getText(), WIDTH);
+    ClienteDAO.guardar(txfNombre.getText(), txfDireccion.getText(), txfTelefono.getText(), cboxCiudad.getSelectedIndex()+1);
+    JOptionPane.showMessageDialog(rootPane, "El cliente ha sido registrado");
+    vistaCliente.setVisible(true);
+    dispose();
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**
      * @param args the command line arguments
