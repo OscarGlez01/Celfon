@@ -21,6 +21,9 @@ public class VistaEstado extends javax.swing.JFrame {
         RefrescarTabla();
     }
 
+    /**
+     * Actualiza los valores de la tabla de Estado
+     */
     public void RefrescarTabla(){
         estados= EstadoDAO.obtenerTodos();
         
