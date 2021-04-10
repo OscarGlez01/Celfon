@@ -1,6 +1,9 @@
 
 package mx.itson.celfon.presentacion;
 
+import static java.awt.image.ImageObserver.WIDTH;
+import mx.itson.celfon.persistencias.ClienteDAO;
+
 /**
  *
  * @author Oscar González Leyva
@@ -198,7 +201,7 @@ public class AgregarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_txfNombreActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        
+    ClienteDAO.guardar(txfNombre.getText(), txfDireccion.getText(), txfTelefono.getText(), WIDTH);
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     /**

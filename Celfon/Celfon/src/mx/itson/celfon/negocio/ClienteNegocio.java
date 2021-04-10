@@ -7,5 +7,5 @@ package mx.itson.celfon.negocio;
  */
 public class ClienteNegocio {
     
-    private
+    
 }

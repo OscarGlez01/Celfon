@@ -292,7 +292,7 @@ public class VistaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_txfNombreActionPerformed
 
     private void btnBuscarTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarTelefonoActionPerformed
-        clientes= ClienteDAO.buscar(txfTelefono.toString(), "cl.telefono");
+        clientes= ClienteDAO.buscar(txfTelefono.getText(), "cl.telefono");
         
         DefaultTableModel modelo = (DefaultTableModel) tblClientes.getModel();
 
@@ -310,11 +310,13 @@ public class VistaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarTelefonoActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        // TODO add your handling code here:
+        AgregarCliente agregar = new AgregarCliente();
+        agregar.setVisible(true);
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnBuscarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarNombreActionPerformed
-        clientes= ClienteDAO.buscar(txfNombre.toString(), "cl.nombre");
+
+        clientes= ClienteDAO.buscar(txfNombre.getText(), "cl.nombre");
         
         DefaultTableModel modelo = (DefaultTableModel) tblClientes.getModel();
 
@@ -351,7 +353,7 @@ public class VistaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnActualizarTablaActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**

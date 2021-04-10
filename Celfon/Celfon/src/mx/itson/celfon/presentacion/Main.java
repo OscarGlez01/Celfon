@@ -24,7 +24,7 @@ public class Main {
         }
         */
         
-        List<Cliente> clientes = ClienteDAO.buscar("","cl.nombre");
+        List<Cliente> clientes = ClienteDAO.buscar("juan","cl.nombre");
         
         for(Cliente c : clientes){
             System.out.println("Nombre "+ c.getNombre());
