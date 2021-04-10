@@ -225,6 +225,11 @@ public class VistaCliente extends javax.swing.JFrame {
         });
 
         btnEliminar.setText("Eliminar Cliente");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -374,6 +379,12 @@ public class VistaCliente extends javax.swing.JFrame {
         dispose();
         
     }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        EliminarCliente eliminar= new EliminarCliente();
+        eliminar.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -34,7 +34,7 @@ public class CiudadDAO {
                     
                     Estado estado= new Estado();
                     estado.setId(resultset.getInt(3));
-                    
+                    estado.setNombre(resultset.getString(4));
                     ciudad.setEstado(estado);
                     ciudades.add(ciudad);
                 }

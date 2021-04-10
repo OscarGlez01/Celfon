@@ -1,19 +1,37 @@
 
 package mx.itson.celfon.presentacion;
 
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import mx.itson.celfon.entidades.Estado;
+import mx.itson.celfon.persistencias.EstadoDAO;
+
 /**
  *
  * @author Oscar González Leyva
  */
 public class VistaEstado extends javax.swing.JFrame {
-
+    List<Estado> estados;
+    Main2 main = new Main2();
     /**
      * Creates new form Estado
      */
     public VistaEstado() {
         initComponents();
+        RefrescarTabla();
     }
 
+    public void RefrescarTabla(){
+        estados= EstadoDAO.obtenerTodos();
+        
+        DefaultTableModel modelo = (DefaultTableModel) tblEstado.getModel();
+
+        modelo.setRowCount(0);
+
+        for (Estado estado : estados) {
+            modelo.addRow(new Object[]{estado.getNombre()});
+        }
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -22,19 +40,19 @@ public class VistaEstado extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblEstado = new javax.swing.JTable();
         btnActualizar = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("Lista de estados"); // NOI18N
 
-        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("Lista de estados"), this, org.jdesktop.beansbinding.BeanProperty.create("title"));
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("Registro de estados"), this, org.jdesktop.beansbinding.BeanProperty.create("title"));
         bindingGroup.addBinding(binding);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 102));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblEstado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -42,11 +60,21 @@ public class VistaEstado extends javax.swing.JFrame {
                 "Nombre del estado"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblEstado);
 
         btnActualizar.setText("Actualizar lista");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
         btnRegresar.setText("Regresar al menú");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -89,6 +117,15 @@ public class VistaEstado extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        RefrescarTabla();
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        main.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnRegresarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -130,7 +167,7 @@ public class VistaEstado extends javax.swing.JFrame {
     private javax.swing.JButton btnRegresar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblEstado;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

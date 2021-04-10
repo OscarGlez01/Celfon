@@ -106,7 +106,6 @@ public class ClienteDAO {
      * @param nombre
      * @param direccion
      * @param telefono
-     * @param id
      * @return Devuelve un estado de editar u envia un mensaje con el error
      */
     public static boolean editar(String nombre, String direccion, String telefono) {
@@ -133,14 +132,14 @@ public class ClienteDAO {
      * @param id
      * @return Duevuelve un estado eliminar u envia un mensaje con el error
      */
-    public static boolean eliminar(int id) {
+    public static boolean eliminar(String nombre) {
         
         boolean eliminar = false;
         try {
             Connection conexion = Conexion.obtener();
-            String consulta = "DELETE FROM cliente WHERE id = ? ";
+            String consulta = "DELETE FROM cliente WHERE nombre = ? ";
             PreparedStatement st = conexion.prepareStatement(consulta);
-            st.setInt(1, id);
+            st.setString(1, nombre);
 
             eliminar = st.executeUpdate() == 1;
             conexion.close();
