@@ -13,7 +13,7 @@ import mx.itson.celfon.persistencias.CiudadDAO;
  */
 public class VistaCiudad extends javax.swing.JFrame {
     List<Ciudad> ciudades;
-    Main2 main= new Main2();
+    VistaPrincipal main= new VistaPrincipal();
     /**
      * Creates new form Ciudad
      */

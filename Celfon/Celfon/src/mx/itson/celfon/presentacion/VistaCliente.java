@@ -12,7 +12,7 @@ import mx.itson.celfon.persistencias.ClienteDAO;
  */
 public class VistaCliente extends javax.swing.JFrame {
     List<Cliente> clientes;
-    Main2 main = new Main2();
+    VistaPrincipal main = new VistaPrincipal();
     /**
      * Creates new form Cliente
      */

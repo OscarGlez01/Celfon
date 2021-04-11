@@ -12,7 +12,7 @@ import mx.itson.celfon.persistencias.EstadoDAO;
  */
 public class VistaEstado extends javax.swing.JFrame {
     List<Estado> estados;
-    Main2 main = new Main2();
+    VistaPrincipal main = new VistaPrincipal();
     /**
      * Creates new form Estado
      */
