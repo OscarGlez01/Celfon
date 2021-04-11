@@ -7,4 +7,5 @@ package mx.itson.celfon.persistencias;
  */
 public class LlamadaDAO {
     
+    
 }

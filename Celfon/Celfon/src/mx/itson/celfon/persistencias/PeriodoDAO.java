@@ -2,8 +2,8 @@
 package mx.itson.celfon.persistencias;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import mx.itson.celfon.entidades.Cliente;
@@ -21,14 +21,19 @@ public class PeriodoDAO {
      * @return Devuelve los datos correctos encontrados en la base de datos 
      * e imprime un mensaje si hubo algun error
      */
-    public static List<Periodo> obtenerTodos(){
+    public static List<Periodo> buscar(String filtro, String criterio){
         List<Periodo> periodos = new ArrayList<>();
         try{
             Connection conexion= Conexion.obtener();
             if(conexion != null){
-                Statement statement = conexion.createStatement();
-                ResultSet resultset= statement.executeQuery("SELECT p.id, p.total, p.mes, p.anio, p.estado, cl.id, cl.nombre FROM periodo p" 
-                    +"INNER JOIN cliente cl ON p.idCliente = cl.id ");
+                String consulta=("SELECT p.id, p.total, p.mes, p.anio, p.estado, cl.id, cl.nombre FROM periodo p" 
+                    +"INNER JOIN cliente cl ON p.idCliente = cl.id "
+                    +" WHERE "+criterio+" LIKE ?");
+                
+                PreparedStatement st = conexion.prepareStatement(consulta);
+                st.setString(1, "%" + filtro + "%");
+                ResultSet resultset= st.executeQuery();
+                
                 while(resultset.next()){
                    Periodo periodo = new Periodo();
                    periodo.setId(resultset.getInt(1));
@@ -49,5 +54,78 @@ public class PeriodoDAO {
             System.out.println("Error"+ ex.getMessage());
         }
         return periodos;
+    }
+    
+    /**
+     * 
+     * @param idCliente
+     * @param total
+     * @param mes
+     * @param anio
+     * @param estado
+     * @return 
+     */
+    public static boolean guardar(int idCliente, double total, int mes, int anio, int estado){
+        boolean estaGuardado= false;
+        try{
+            Connection conexion= Conexion.obtener();
+            String consulta= "INSERT INTO periodo (idCliente, total, mes, anio, estado) VALUES (?, ?, ?, ?)";
+            PreparedStatement st= conexion.prepareStatement(consulta);
+            st.setDouble(1, idCliente);
+            st.setDouble(2, total);
+            st.setInt(3, mes);
+            st.setInt(4, anio);
+            st.setInt(5, estado);
+            
+            estaGuardado = st.executeUpdate() == 1;
+            
+            conexion.close();
+            
+        }catch(Exception ex){
+            System.out.println("Error"+ ex.getMessage());
+        }
+        return estaGuardado;
+    }
+    
+    /**
+     * Elimina por la variable id los datos guardados en la base de datos de Cliente
+     * @param idCliente identificador del cliente al que pertenece el periodo
+     * @return Duevuelve un estado eliminar u envia un mensaje con el error
+     */
+    public static boolean eliminar(int idCliente) {
+        
+        boolean eliminar = false;
+        try {
+            Connection conexion = Conexion.obtener();
+            String consulta = "DELETE FROM periodo WHERE cl.nombre = ?" 
+                    + " INNER JOIN cliente cl ON p.idCliente = cl.id";
+            PreparedStatement st = conexion.prepareStatement(consulta);
+            st.setInt(1, idCliente);
+
+            eliminar = st.executeUpdate() == 1;
+            conexion.close();
+
+        } catch (Exception ex) {
+            System.out.println("Error" + ex.getMessage());
+        }
+        return eliminar;
+    }
+    
+    public static boolean editar(int estado) {
+        boolean editar = false;
+        try {
+            Connection conexion = Conexion.obtener();
+            String consulta = "UPDATE periodo SET estado = ? WHERE ( estado = ?)";
+            PreparedStatement st = conexion.prepareStatement(consulta);
+            st.setInt(1, estado);
+            
+
+            editar = st.executeUpdate() == 1;
+            conexion.close();
+
+        } catch (Exception ex) {
+            System.out.println("Error" + ex.getMessage());
+        }
+        return editar;
     }
 }
