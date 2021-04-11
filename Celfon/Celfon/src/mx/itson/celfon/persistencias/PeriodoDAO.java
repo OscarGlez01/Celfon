@@ -6,12 +6,13 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import mx.itson.celfon.entidades.Cliente;
 import mx.itson.celfon.entidades.Periodo;
 import mx.itson.celfon.enumeradores.EstadoPeriodo;
 
 /**
  * Manjea el acceso de datos de la entidad de Periodo
- * @author González
+ * @author Oscar González Leyva
  */
 public class PeriodoDAO {
     /**
@@ -26,7 +27,7 @@ public class PeriodoDAO {
             Connection conexion= Conexion.obtener();
             if(conexion != null){
                 Statement statement = conexion.createStatement();
-                ResultSet resultset= statement.executeQuery("SELECT p.id, p.total, p.mes, p.anio, p.estado FROM periodo p" 
+                ResultSet resultset= statement.executeQuery("SELECT p.id, p.total, p.mes, p.anio, p.estado, cl.id, cl.nombre FROM periodo p" 
                     +"INNER JOIN cliente cl ON p.idCliente = cl.id ");
                 while(resultset.next()){
                    Periodo periodo = new Periodo();
@@ -35,6 +36,10 @@ public class PeriodoDAO {
                    periodo.setMes(resultset.getInt(3));
                    periodo.setAnio(resultset.getInt(4));
                    periodo.setEstado(EstadoPeriodo.obtenerPorNumero(resultset.getInt(5)));
+                   
+                   Cliente cliente= new Cliente();
+                   cliente.setId(resultset.getInt(6));
+                   cliente.setNombre(resultset.getString(7));
                    
                    periodos.add(periodo);
                 }

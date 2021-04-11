@@ -168,7 +168,7 @@ public class Main2 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEstadosActionPerformed
 
     private void btnPeriodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPeriodosActionPerformed
-        VistaPeriodoLlamada vistaPeriodo = new VistaPeriodoLlamada();
+        VistaPeriodo vistaPeriodo = new VistaPeriodo();
         vistaPeriodo.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnPeriodosActionPerformed
