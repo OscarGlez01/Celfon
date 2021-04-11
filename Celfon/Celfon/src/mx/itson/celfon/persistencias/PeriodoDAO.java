@@ -57,12 +57,12 @@ public class PeriodoDAO {
     }
     
     /**
-     * 
-     * @param idCliente
-     * @param total
-     * @param mes
-     * @param anio
-     * @param estado
+     * Guarda las variables obtenidas en la base de datos 
+     * @param idCliente identificador del cliente al que pertenece el periodo
+     * @param total monto a pagar
+     * @param mes en este se capturo el periodo en cuestión
+     * @param anio al que pertenece el periodo
+     * @param estado estado en el que reside o factura el cliente
      * @return 
      */
     public static boolean guardar(int idCliente, double total, int mes, int anio, int estado){
@@ -88,7 +88,7 @@ public class PeriodoDAO {
     }
     
     /**
-     * Elimina por la variable id los datos guardados en la base de datos de Cliente
+     * Elimina por la variable de nombre los datos guardados en la base de datos de Cliente
      * @param idCliente identificador del cliente al que pertenece el periodo
      * @return Duevuelve un estado eliminar u envia un mensaje con el error
      */
