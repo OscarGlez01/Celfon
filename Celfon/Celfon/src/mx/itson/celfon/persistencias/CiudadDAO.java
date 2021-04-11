@@ -10,7 +10,7 @@ import mx.itson.celfon.entidades.Estado;
 
 /**
  * Maneja el acceso a datos correspondiente a la entidad Ciudad
- * @author osc04
+ * @author Oscar González Leyva
  */
 public class CiudadDAO {
     

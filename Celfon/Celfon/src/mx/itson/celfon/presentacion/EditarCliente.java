@@ -9,7 +9,7 @@ import mx.itson.celfon.persistencias.CiudadDAO;
 import mx.itson.celfon.persistencias.ClienteDAO;
 
 /**
- *
+ * Reune los campos necesarios para editar un cliente existente dentro del registro de clientes
  * @author Oscar González Leyva
  */
 public class EditarCliente extends javax.swing.JFrame {
@@ -222,6 +222,10 @@ public class EditarCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Edita los registros de la tabla cliente mediante una consulta de tipo UPDATE
+     * @param evt parámetro generado por defecto
+     */
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         ClienteDAO.editar(txfNombre.getText(), txfDireccion.getText(), txfTelefono.getText());
         JOptionPane.showMessageDialog(rootPane,"Los datos del cliente "+txfNombre.getText()+" se han editado con exito");
@@ -229,11 +233,19 @@ public class EditarCliente extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnEditarActionPerformed
 
+    /**
+     * 
+     * @param evt 
+     */
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         vistaCliente.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    /**
+     * 
+     * @param evt 
+     */
     private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
         List<Cliente> clientes = ClienteDAO.buscar(txfNombreCompleto.getText(),"cl.nombre");
 

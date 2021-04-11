@@ -8,7 +8,7 @@ import mx.itson.celfon.persistencias.CiudadDAO;
 import mx.itson.celfon.persistencias.ClienteDAO;
 
 /**
- *
+ * Reune los campos necesarios para introducir los datos de un nuevo cliente y guarda un registro en la tabla cliente
  * @author Oscar González Leyva
  */
 public class AgregarCliente extends javax.swing.JFrame {
@@ -16,7 +16,7 @@ public class AgregarCliente extends javax.swing.JFrame {
     VistaCliente vistaCliente= new VistaCliente();
     
     /**
-     * Creates new form BuscarCliente
+     * Creates new form BuscarCliente e inicia los componentes del frame
      */
     public AgregarCliente() {
         initComponents();
@@ -211,9 +211,13 @@ public class AgregarCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txfNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfNombreActionPerformed
-        
+        //código de manera automatica sin uso en el contexto actual.
     }//GEN-LAST:event_txfNombreActionPerformed
 
+    /**
+     * Guarda los datos capturados mediante una consulta INSERT INTO en Cliente DAO
+     * @param evt parámetro generado por defecto
+     */
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
     ClienteDAO.guardar(txfNombre.getText(), txfDireccion.getText(), txfTelefono.getText(), cboxCiudad.getSelectedIndex()+1);
     JOptionPane.showMessageDialog(rootPane, "El cliente ha sido registrado");
@@ -222,6 +226,10 @@ public class AgregarCliente extends javax.swing.JFrame {
     dispose();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
+    /**
+     * Cierra el frame actual y restaura la vista anterior
+     * @param evt parámetro generado por defecto
+     */
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         vistaCliente.RefrescarTabla();
         dispose();

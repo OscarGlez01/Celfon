@@ -67,10 +67,10 @@ public class ClienteDAO {
     
     /**
      * Guarda las variables obtenidas en la base de datos 
-     * @param nombre
-     * @param direccion
-     * @param telefono
-     * @param idCiudad
+     * @param nombre es completo del cliente
+     * @param direccion es la residencia en la que se encuentra el cliente 
+     * @param telefono es el número de telefono proporcionado por el cliente
+     * @param idCiudad es el indice o identificador de la ciudad de residencia del cliente
      * @return Duevuelve un estado de guardado u envia un mensaje con el error 
      */
     public static boolean guardar(String nombre, String direccion, String telefono,int idCiudad){
@@ -103,9 +103,9 @@ public class ClienteDAO {
     
     /**
      * Edita las variables de cliente dentro de la base de datos
-     * @param nombre
-     * @param direccion
-     * @param telefono
+     * @param nombre es el nombre completo del cliente
+     * @param direccion es el lugar de residencia del cliente
+     * @param telefono es el número de telefono proporcionado por el cliente
      * @return Devuelve un estado de editar u envia un mensaje con el error
      */
     public static boolean editar(String nombre, String direccion, String telefono) {

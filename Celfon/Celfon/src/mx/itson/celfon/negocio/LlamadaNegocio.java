@@ -3,7 +3,7 @@ package mx.itson.celfon.negocio;
 
 /**
  *
- * @author González
+ * @author Oscar González Leyva
  */
 public class LlamadaNegocio {
     
