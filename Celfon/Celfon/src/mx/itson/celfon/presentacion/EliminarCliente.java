@@ -8,14 +8,14 @@ import mx.itson.celfon.entidades.Cliente;
 import mx.itson.celfon.persistencias.ClienteDAO;
 
 /**
- *
+ * Localiza la vista cliente y elimina los elementos seleccionados de su tabla
  * @author Oscar González Leyva
  */
 public class EliminarCliente extends javax.swing.JFrame {
     VistaCliente vistaCliente= new VistaCliente();
     
     /**
-     * Creates new form EliminarCliente
+     * Creates new form EliminarCliente e inicia los componentes en el frame
      */
     public EliminarCliente() {
         initComponents();
@@ -152,6 +152,10 @@ public class EliminarCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Muestra la tabla de clientes y selecciona los datos compatibles dentro de la busqueda junto con sus elementos
+     * @param evt 
+     */
     private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
         List<Cliente> clientes = ClienteDAO.buscar(txfNombreCompleto.getText(),"cl.nombre");
 
@@ -170,6 +174,10 @@ public class EliminarCliente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSeleccionarActionPerformed
 
+    /**
+     * Elimina los elementos seleccionados dentro de la entidad de ClienteDAO y lo confirma 
+     * @param evt 
+     */
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         ClienteDAO.eliminar(txfNombreCompleto.getText());
         JOptionPane.showMessageDialog(rootPane,"El cliente "+txfNombreCompleto.getText()+" se ha eliminado del sistema");
@@ -177,6 +185,10 @@ public class EliminarCliente extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    /**
+     * Omite todos los datos existentes y renueva la vista de vistaCliente
+     * @param evt 
+     */
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         vistaCliente.setVisible(true);
         dispose();
