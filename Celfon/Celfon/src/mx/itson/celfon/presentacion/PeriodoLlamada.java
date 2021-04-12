@@ -4,6 +4,7 @@ package mx.itson.celfon.presentacion;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import mx.itson.celfon.entidades.Llamada;
+import mx.itson.celfon.negocio.LlamadaNegocio;
 import mx.itson.celfon.persistencias.LlamadaDAO;
 
 /**
@@ -18,9 +19,12 @@ public class PeriodoLlamada extends javax.swing.JFrame {
     public PeriodoLlamada() {
         initComponents();
         
-        
     }
     
+    /**
+     * 
+     * @param filtro 
+     */
     public void LlenarTabla(String filtro){
         DefaultTableModel modelo = (DefaultTableModel) tblLlamada.getModel();
         List<Llamada> llamadas = LlamadaDAO.buscar(filtro);
@@ -29,8 +33,9 @@ public class PeriodoLlamada extends javax.swing.JFrame {
         for (Llamada llamada : llamadas) {
             modelo.addRow(new Object[]{
                 llamada.getTelefono(),
-                llamada.getDuracion(),
-                llamada.getFecha()
+                LlamadaNegocio.ConvertirDuracion(llamada.getDuracion()),
+                llamada.getFecha(),
+                llamada.getId()
             });
         }
         tblLlamada.setModel(modelo);
@@ -90,7 +95,7 @@ public class PeriodoLlamada extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Número", "Duración", "Fecha y Hora"
+                "Número", "Duración", "Fecha y hora", "id"
             }
         ));
         jScrollPane1.setViewportView(tblLlamada);
@@ -107,17 +112,16 @@ public class PeriodoLlamada extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGap(103, 103, 103)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,9 +142,7 @@ public class PeriodoLlamada extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,10 +204,18 @@ public class PeriodoLlamada extends javax.swing.JFrame {
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Obtiene el valor del filtro de consulta
+     * @return el valor filtro obtenido desde la selección en la vista anterior
+     */
     public String getFiltro() {
         return filtro;
     }
 
+    /**
+     * Asigna el valor para filtro
+     * @param filtro Es el valor que completa la consulta de busqueda para las llamadas
+     */
     public void setFiltro(String filtro) {
         this.filtro = filtro;
     }

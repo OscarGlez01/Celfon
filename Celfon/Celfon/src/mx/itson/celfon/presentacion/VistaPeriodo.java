@@ -15,7 +15,7 @@ import mx.itson.celfon.persistencias.PeriodoDAO;
  */
 public class VistaPeriodo extends javax.swing.JFrame {
     List<Periodo> periodos;
-    
+    VistaPrincipal main = new VistaPrincipal();
     /**
      * Creates new form VistaPeriodo, inicia los componentes y refresca la tabla con una vista general
      */
@@ -23,7 +23,9 @@ public class VistaPeriodo extends javax.swing.JFrame {
         initComponents();
         periodos=PeriodoDAO.buscar("", "cl.nombre");
         LlenarCriterios();
+        PoblarComboxEstado();
         LlenarTabla();
+        
     }
 
     /**
@@ -53,6 +55,12 @@ public class VistaPeriodo extends javax.swing.JFrame {
         cboxCriterio.addItem("Mes");
         cboxCriterio.addItem("Año");
         cboxCriterio.addItem("Estado");
+    }
+    
+    private void PoblarComboxEstado(){
+        cboxEstado.addItem("Pagado");
+        cboxEstado.addItem("Cancelado");
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -149,6 +157,11 @@ public class VistaPeriodo extends javax.swing.JFrame {
         });
 
         btnCambiarEstado.setText("Cambiar estado");
+        btnCambiarEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCambiarEstadoActionPerformed(evt);
+            }
+        });
 
         btnConsultar.setText("Consultar / Modificar periodo");
         btnConsultar.addActionListener(new java.awt.event.ActionListener() {
@@ -158,6 +171,11 @@ public class VistaPeriodo extends javax.swing.JFrame {
         });
 
         btnRegresar.setText("Regresar al menú principal");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -274,9 +292,8 @@ public class VistaPeriodo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        int fila= tblPeriodo.getSelectedRow();
-        //int idPeriodo= tblPeriodo.getValueAt(fila, 0);
-        //PeriodoDAO.eliminar();
+        int idPeriodo= Integer.parseInt(tblPeriodo.getValueAt(tblPeriodo.getSelectedRow(), 5).toString());
+        PeriodoDAO.eliminar(idPeriodo);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
@@ -286,6 +303,17 @@ public class VistaPeriodo extends javax.swing.JFrame {
         dispose();
         
     }//GEN-LAST:event_btnConsultarActionPerformed
+
+    private void btnCambiarEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarEstadoActionPerformed
+        int idPeriodo= Integer.parseInt(tblPeriodo.getValueAt(tblPeriodo.getSelectedRow(), 5).toString());
+        int estado=cboxEstado.getSelectedIndex()+2;
+        PeriodoDAO.editar(estado,idPeriodo);
+    }//GEN-LAST:event_btnCambiarEstadoActionPerformed
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        main.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**
      * @param args the command line arguments

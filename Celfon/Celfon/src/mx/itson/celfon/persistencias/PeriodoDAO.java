@@ -111,15 +111,17 @@ public class PeriodoDAO {
     /**
      * 
      * @param estado
+     * @param id
      * @return 
      */
-    public static boolean editar(int estado) {
+    public static boolean editar(int estado, int id) {
         boolean editar = false;
         try {
             Connection conexion = Conexion.obtener();
             String consulta = "UPDATE periodo SET estado = ? WHERE ( id = ?)";
             PreparedStatement st = conexion.prepareStatement(consulta);
             st.setInt(1, estado);
+            st.setInt(2, id);
             
 
             editar = st.executeUpdate() == 1;
