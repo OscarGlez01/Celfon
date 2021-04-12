@@ -18,7 +18,7 @@ public class PeriodoLlamada extends javax.swing.JFrame {
     VistaPeriodo periodo= new VistaPeriodo();
     /**
      * Parsea los datos para visualizar su valor a toString
-     * Creates new form PeriodoLlamada
+     * Creates new form PeriodoLlamada e inicia los componentes del frame
      */
     public PeriodoLlamada() {
         initComponents();
