@@ -11,7 +11,7 @@ import mx.itson.celfon.negocio.PeriodoNegocio;
 import mx.itson.celfon.persistencias.PeriodoDAO;
 
 /**
- *
+ * Gestiona los datos y registros de periodo existente en la lista de periodod de PeriodoDAO
  * @author Oscar González Leyva
  */
 public class VistaPeriodo extends javax.swing.JFrame {
@@ -30,7 +30,7 @@ public class VistaPeriodo extends javax.swing.JFrame {
     }
 
     /**
-     * 
+     * Actualiza las tabla con los valores obtenidos de Cliente con sus componentes
      */
     public void LlenarTabla(){
         DefaultTableModel modelo = (DefaultTableModel) tblPeriodo.getModel();
@@ -49,7 +49,7 @@ public class VistaPeriodo extends javax.swing.JFrame {
         }
     }
     /**
-     * 
+     * Se actualiza el combobox con los elementos definidos
      */
     private void LlenarCriterios(){
         cboxCriterio.addItem("Nombre");
@@ -58,6 +58,9 @@ public class VistaPeriodo extends javax.swing.JFrame {
         cboxCriterio.addItem("Estado");
     }
     
+    /**
+     * Emite el enumerador mostrando su estado
+     */
     private void PoblarComboxEstado(){
         cboxEstado.addItem("Pagado");
         cboxEstado.addItem("Cancelado");
@@ -256,7 +259,7 @@ public class VistaPeriodo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * 
+     * Busca al cliente mediante un criterio especifico de sus componentes de Cliente
      * @param evt 
      */
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -285,12 +288,20 @@ public class VistaPeriodo extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnBuscarActionPerformed
 
+    /**
+     * Envia al frame AgregarPeriodo para inicializar un nuevo periodo
+     * @param evt 
+     */
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         AgregarPeriodo agregar= new AgregarPeriodo();
         agregar.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
+    /**
+     * Elimina los valores seleccionados existentes en la tabla
+     * @param evt 
+     */
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         int idPeriodo= Integer.parseInt(tblPeriodo.getValueAt(tblPeriodo.getSelectedRow(), 5).toString());
         PeriodoDAO.eliminar(idPeriodo);
@@ -299,6 +310,10 @@ public class VistaPeriodo extends javax.swing.JFrame {
         LlenarTabla();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    /**
+     * Inicia una consulta de valores ya sea o no existentes en la tabla y los muestra
+     * @param evt 
+     */
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
         PeriodoLlamada periodoLlamada = new PeriodoLlamada();
         try{
@@ -312,6 +327,10 @@ public class VistaPeriodo extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnConsultarActionPerformed
 
+    /**
+     * Asigna el enumerador con el valor del estado de periodo
+     * @param evt 
+     */
     private void btnCambiarEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarEstadoActionPerformed
         int idPeriodo= Integer.parseInt(tblPeriodo.getValueAt(tblPeriodo.getSelectedRow(), 5).toString());
         int estado=cboxEstado.getSelectedIndex()+2;
@@ -321,6 +340,10 @@ public class VistaPeriodo extends javax.swing.JFrame {
         LlenarTabla();
     }//GEN-LAST:event_btnCambiarEstadoActionPerformed
 
+    /**
+     * Envia al frame del menu principal
+     * @param evt 
+     */
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         main.setVisible(true);
         dispose();
