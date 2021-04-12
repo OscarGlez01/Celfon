@@ -20,14 +20,14 @@ public class Ciudad {
     }
     /**
     * Pone el valor de Id
-    * @param id 
+    * @param id un identificador asociado a la ciudad
     */
     public void setId(int id) {
         this.id = id;
     }
     /**
     * Obtiene el valor de nombre
-    * @return 
+    * @return el nombre de la ciudad
     */
     public String getNombre() {
         return nombre;
@@ -48,7 +48,7 @@ public class Ciudad {
     }
     /**
      * Pone el valor de Estado
-     * @param estado 
+     * @param estado entidad federativa que abarca a la ciudad
      */
     public void setEstado(Estado estado) {
         this.estado = estado;

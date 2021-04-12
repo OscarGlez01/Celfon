@@ -49,6 +49,14 @@ public class LlamadaDAO {
         return llamadas;
     }
     
+    /**
+     * guarda una entrada de tipo llamada en la tabla de llamada
+     * @param telefono número telefonico de la otra parte de la llamada
+     * @param duracion en segundos de la llamada
+     * @param fecha fecha estimada de la realización de la llamada
+     * @param idPeriodo indice referente al periodo en el que se realizo la llamada
+     * @return estado de verificación sobre la consulta, en forma de booleano
+     */
     public static boolean guardar(String telefono, int duracion, Date fecha, int idPeriodo){
         boolean estaGuardado= false;
         try{
@@ -70,6 +78,11 @@ public class LlamadaDAO {
         return estaGuardado;
     }
     
+    /**
+     * elimina una entrada de la tabla llamada a partir de su id
+     * @param id identificador que hace referencia a una entidad llamada
+     * @return estado de verificación sobre la consulta, en forma de booleano
+     */
     public static boolean eliminar(int id) {
         
         boolean eliminar = false;

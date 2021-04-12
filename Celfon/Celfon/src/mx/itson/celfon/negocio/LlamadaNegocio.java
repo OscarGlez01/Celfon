@@ -2,15 +2,15 @@
 package mx.itson.celfon.negocio;
 
 /**
- *
+ *Esta clase sirve para metodos relevantes para entidades de tipo Llamada
  * @author Oscar González Leyva
  */
 public class LlamadaNegocio {
     
     /**
-     * 
-     * @param duracion
-     * @return 
+     * Este metodo convierte la duración de una llamada de segundos a un formato de horas, minutos y segundos
+     * @param duracion valor entero que hace referencia a los segundos de una llamada
+     * @return parametro String que organiza la duración
      */
     public static String ConvertirDuracion(int duracion){
         int hor,min,seg;
