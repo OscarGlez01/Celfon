@@ -125,6 +125,11 @@ public class VistaPeriodo extends javax.swing.JFrame {
         });
 
         btnAgregar.setText("Agregar periodo");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setText("Eliminar periodo");
 
@@ -242,6 +247,12 @@ public class VistaPeriodo extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        AgregarPeriodo agregar= new AgregarPeriodo();
+        agregar.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
     /**
      * @param args the command line arguments
