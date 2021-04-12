@@ -7,14 +7,14 @@ import mx.itson.celfon.entidades.Cliente;
 import mx.itson.celfon.persistencias.ClienteDAO;
 
 /**
- *
+ * Gestiona los datos existentes de la entidad DAO igual que los puede identificar por nombre y telefono
  * @author Oscar González Leyva
  */
 public class VistaCliente extends javax.swing.JFrame {
     List<Cliente> clientes;
     VistaPrincipal main = new VistaPrincipal();
     /**
-     * Creates new form Cliente
+     * Creates new form Cliente 
      */
     public VistaCliente() {
         initComponents();
@@ -321,6 +321,10 @@ public class VistaCliente extends javax.swing.JFrame {
         // Método sin uso al ser un textfield
     }//GEN-LAST:event_txfNombreActionPerformed
 
+    /**
+     * Filtra al cliente a partir de su numero registrado en ClienteDAO
+     * @param evt 
+     */
     private void btnBuscarTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarTelefonoActionPerformed
         clientes= ClienteDAO.buscar(txfTelefono.getText(), "cl.telefono");
         
@@ -339,6 +343,10 @@ public class VistaCliente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnBuscarTelefonoActionPerformed
 
+    /**
+     * Envia al frame de AgregarCliente para inicializar un nuevo cliente
+     * @param evt 
+     */
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         AgregarCliente agregar = new AgregarCliente();
         agregar.setVisible(true);
@@ -369,15 +377,27 @@ public class VistaCliente extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnBuscarNombreActionPerformed
 
+    /**
+     * Actualiza los valores de la tabla
+     * @param evt 
+     */
     private void btnActualizarTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarTablaActionPerformed
        RefrescarTabla();
     }//GEN-LAST:event_btnActualizarTablaActionPerformed
 
+    /**
+     * Envia al frame de vista principal
+     * @param evt 
+     */
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         main.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 
+        /**
+         * Envia al frame de EditarCliente para actualizar datos de ClienteDAO
+         * @param evt 
+         */
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         EditarCliente editar= new EditarCliente();
         editar.setVisible(true);
@@ -385,6 +405,10 @@ public class VistaCliente extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnEditarActionPerformed
 
+    /**
+     * Elimina los datos registrados en ClienteDAO a partir del Cliente seleccionado
+     * @param evt 
+     */
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         EliminarCliente eliminar= new EliminarCliente();
         eliminar.setVisible(true);
