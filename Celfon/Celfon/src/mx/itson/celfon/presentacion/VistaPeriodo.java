@@ -265,7 +265,6 @@ public class VistaPeriodo extends javax.swing.JFrame {
         switch(criterio){
             case "cl.nombre":
                 periodos=PeriodoDAO.buscar(txfBusqueda.getText(),criterio);
-                System.out.println(txfBusqueda.getText() +criterio);
                 LlenarTabla();
                 break;
             case "p.mes":
@@ -302,9 +301,14 @@ public class VistaPeriodo extends javax.swing.JFrame {
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
         PeriodoLlamada periodoLlamada = new PeriodoLlamada();
-        periodoLlamada.LlenarTabla(tblPeriodo.getValueAt(tblPeriodo.getSelectedRow(), 5).toString());
+        try{
+            periodoLlamada.LlenarTabla(tblPeriodo.getValueAt(tblPeriodo.getSelectedRow(), 5).toString());
         periodoLlamada.setVisible(true);
         dispose();
+        }catch(Exception ex){
+             JOptionPane.showMessageDialog(rootPane, "El periodo parece estar vacío o fuera de alcance");
+
+        }
         
     }//GEN-LAST:event_btnConsultarActionPerformed
 
