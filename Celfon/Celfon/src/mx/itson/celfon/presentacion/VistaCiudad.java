@@ -4,7 +4,6 @@ package mx.itson.celfon.presentacion;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import mx.itson.celfon.entidades.Ciudad;
-import mx.itson.celfon.entidades.Estado;
 import mx.itson.celfon.persistencias.CiudadDAO;
 
 /**

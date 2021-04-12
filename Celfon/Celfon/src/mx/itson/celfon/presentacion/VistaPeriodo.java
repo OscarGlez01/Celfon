@@ -1,6 +1,9 @@
 
 package mx.itson.celfon.presentacion;
 
+import mx.itson.celfon.negocio.PeriodoNegocio;
+import mx.itson.celfon.persistencias.PeriodoDAO;
+
 /**
  *
  * @author Oscar González Leyva
@@ -80,6 +83,11 @@ public class VistaPeriodo extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblPeriodo);
 
         btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         btnAgregar.setText("Agregar periodo");
 
@@ -167,6 +175,12 @@ public class VistaPeriodo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        Integer indiceCriterio= cboxCriterio.getSelectedIndex()+1;
+        String criterio= PeriodoNegocio.DefinirCriterio(indiceCriterio);
+        PeriodoDAO.buscar(txfBusqueda.getText(),criterio);
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
      * @param args the command line arguments
