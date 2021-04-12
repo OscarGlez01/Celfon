@@ -12,6 +12,7 @@ public class Llamada {
     private String telefono;
     private int duracion;
     private Date fecha;
+    private Periodo periodo;
 
     /**
      * Obtiene el valor de Id
@@ -68,6 +69,22 @@ public class Llamada {
      */
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+
+    /**
+     * 
+     * @return 
+     */
+    public Periodo getPeriodo() {
+        return periodo;
+    }
+
+    /**
+     * 
+     * @param periodo 
+     */
+    public void setPeriodo(Periodo periodo) {
+        this.periodo = periodo;
     }
     
 }

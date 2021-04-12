@@ -221,17 +221,26 @@ public class VistaPeriodo extends javax.swing.JFrame {
         switch(criterio){
             case "cl.nombre":
                 periodos=PeriodoDAO.buscar(txfBusqueda.getText(),criterio);
+                System.out.println(txfBusqueda.getText() +criterio);
+                LlenarTabla();
+                break;
             case "p.mes":
                 String busquedaMes=MesPeriodo.obtenerPorNombre(txfBusqueda.getText());
                 periodos=PeriodoDAO.buscar(busquedaMes, criterio);
+                LlenarTabla();
+                break;
             case "p.anio":
                 periodos=PeriodoDAO.buscar(txfBusqueda.getText(), criterio);
+                LlenarTabla();
+                break;
             case "p.estado":
                 String busquedaEstado=EstadoPeriodo.obtenerPorNombre(txfBusqueda.getText());
                 periodos=PeriodoDAO.buscar(busquedaEstado, criterio);
+                LlenarTabla();
+                break;
         }
         
-        LlenarTabla();
+        
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
