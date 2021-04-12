@@ -4,8 +4,10 @@ package mx.itson.celfon.presentacion;
 import java.util.List;
 import mx.itson.celfon.entidades.Estado;
 import mx.itson.celfon.entidades.Cliente;
+import mx.itson.celfon.entidades.Periodo;
 import mx.itson.celfon.persistencias.ClienteDAO;
 import mx.itson.celfon.persistencias.EstadoDAO;
+import mx.itson.celfon.persistencias.PeriodoDAO;
 
 /**
  *
@@ -24,10 +26,17 @@ public class Main {
         }
         */
         
+        /*
         List<Cliente> clientes = ClienteDAO.buscar("juan","cl.nombre");
         
         for(Cliente c : clientes){
             System.out.println("Nombre "+ c.getNombre());
+        }
+*/
+        List<Periodo> periodos = PeriodoDAO.buscar("juan", "cl.nombre");
+        
+        for (Periodo p : periodos){
+            System.out.println("Nombre "+p.getCliente().getNombre());
         }
     }
     

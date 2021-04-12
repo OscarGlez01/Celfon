@@ -26,8 +26,8 @@ public class PeriodoDAO {
         try{
             Connection conexion= Conexion.obtener();
             if(conexion != null){
-                String consulta=("SELECT p.id, p.total, p.mes, p.anio, p.estado, cl.id, cl.nombre FROM periodo p" 
-                    +"INNER JOIN cliente cl ON p.idCliente = cl.id "
+                String consulta=("SELECT p.id, p.idCliente, p.total, p.mes, p.anio, p.estado, cl.id, cl.nombre FROM periodo p" 
+                    +" INNER JOIN cliente cl ON p.idCliente = cl.id"
                     +" WHERE "+criterio+" LIKE ?");
                 
                 PreparedStatement st = conexion.prepareStatement(consulta);
@@ -37,15 +37,16 @@ public class PeriodoDAO {
                 while(resultset.next()){
                    Periodo periodo = new Periodo();
                    periodo.setId(resultset.getInt(1));
-                   periodo.setTotal(resultset.getDouble(2));
-                   periodo.setMes(resultset.getInt(3));
-                   periodo.setAnio(resultset.getInt(4));
-                   periodo.setEstado(EstadoPeriodo.obtenerPorNumero(resultset.getInt(5)));
+                   periodo.setTotal(resultset.getDouble(3));
+                   periodo.setMes(resultset.getInt(4));
+                   periodo.setAnio(resultset.getInt(5));
+                   periodo.setEstado(EstadoPeriodo.obtenerPorNumero(resultset.getInt(6)));
                    
                    Cliente cliente= new Cliente();
-                   cliente.setId(resultset.getInt(6));
-                   cliente.setNombre(resultset.getString(7));
+                   cliente.setId(resultset.getInt(7));
+                   cliente.setNombre(resultset.getString(8));
                    
+                   periodo.setCliente(cliente);
                    periodos.add(periodo);
                 }
                 conexion.close();

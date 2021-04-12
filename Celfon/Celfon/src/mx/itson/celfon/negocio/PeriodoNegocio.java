@@ -7,6 +7,11 @@ package mx.itson.celfon.negocio;
  */
 public class PeriodoNegocio {
     
+    /**
+     * 
+     * @param criterio
+     * @return 
+     */
     public static String DefinirCriterio(int criterio){
         switch(criterio){
             case 1:

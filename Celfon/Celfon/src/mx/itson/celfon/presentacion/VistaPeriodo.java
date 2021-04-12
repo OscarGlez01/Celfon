@@ -1,6 +1,10 @@
 
 package mx.itson.celfon.presentacion;
 
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import mx.itson.celfon.entidades.Periodo;
+import mx.itson.celfon.enumeradores.EstadoPeriodo;
 import mx.itson.celfon.negocio.PeriodoNegocio;
 import mx.itson.celfon.persistencias.PeriodoDAO;
 
@@ -9,14 +13,22 @@ import mx.itson.celfon.persistencias.PeriodoDAO;
  * @author Oscar González Leyva
  */
 public class VistaPeriodo extends javax.swing.JFrame {
-
+    List<Periodo> periodos;
+    
     /**
      * Creates new form VistaPeriodo
      */
     public VistaPeriodo() {
         initComponents();
+        LlenarCriterios();
     }
 
+    private void LlenarCriterios(){
+        cboxCriterio.addItem("Nombre");
+        cboxCriterio.addItem("Mes");
+        cboxCriterio.addItem("Año");
+        cboxCriterio.addItem("Estado");
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -177,9 +189,22 @@ public class VistaPeriodo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        Integer indiceCriterio= cboxCriterio.getSelectedIndex()+1;
+        int indiceCriterio= cboxCriterio.getSelectedIndex()+1;
         String criterio= PeriodoNegocio.DefinirCriterio(indiceCriterio);
-        PeriodoDAO.buscar(txfBusqueda.getText(),criterio);
+        periodos=PeriodoDAO.buscar(txfBusqueda.getText(),criterio);
+        
+        DefaultTableModel modelo = (DefaultTableModel) tblPeriodo.getModel();
+
+        modelo.setRowCount(0);
+
+        for (Periodo periodo : periodos) {
+            modelo.addRow(new Object[]{periodo.getCliente().getNombre(),
+                periodo.getMes(),
+                periodo.getAnio(),
+                periodo.getEstado(),
+                periodo.getTotal()
+            });
+        }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
