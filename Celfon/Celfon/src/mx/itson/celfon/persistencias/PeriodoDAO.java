@@ -61,23 +61,19 @@ public class PeriodoDAO {
     /**
      * Guarda las variables obtenidas en la base de datos 
      * @param idCliente identificador del cliente al que pertenece el periodo
-     * @param total monto a pagar
      * @param mes en este se capturo el periodo en cuestión
      * @param anio al que pertenece el periodo
-     * @param estado estado en el que reside o factura el cliente
      * @return 
      */
-    public static boolean guardar(int idCliente, double total, int mes, int anio, int estado){
+    public static boolean guardar(int idCliente, int mes, int anio){
         boolean estaGuardado= false;
         try{
             Connection conexion= Conexion.obtener();
-            String consulta= "INSERT INTO periodo (idCliente, total, mes, anio, estado) VALUES (?, ?, ?, ?)";
+            String consulta= "INSERT INTO periodo (idCliente, total, mes, anio, estado) VALUES (?, 400.00, ?, 1)";
             PreparedStatement st= conexion.prepareStatement(consulta);
             st.setDouble(1, idCliente);
-            st.setDouble(2, total);
             st.setInt(3, mes);
             st.setInt(4, anio);
-            st.setInt(5, estado);
             
             estaGuardado = st.executeUpdate() == 1;
             
@@ -91,18 +87,17 @@ public class PeriodoDAO {
     
     /**
      * Elimina por la variable de nombre los datos guardados en la base de datos de Cliente
-     * @param idCliente identificador del cliente al que pertenece el periodo
+     * @param id identificador del periodo
      * @return Duevuelve un estado eliminar u envia un mensaje con el error
      */
-    public static boolean eliminar(int idCliente) {
+    public static boolean eliminar(int id) {
         
         boolean eliminar = false;
         try {
             Connection conexion = Conexion.obtener();
-            String consulta = "DELETE FROM periodo WHERE cl.nombre = ?" 
-                    + " INNER JOIN cliente cl ON p.idCliente = cl.id";
+            String consulta = "DELETE FROM llamada WHERE id = ? ";
             PreparedStatement st = conexion.prepareStatement(consulta);
-            st.setInt(1, idCliente);
+            st.setInt(1, id);
 
             eliminar = st.executeUpdate() == 1;
             conexion.close();
@@ -113,11 +108,16 @@ public class PeriodoDAO {
         return eliminar;
     }
     
+    /**
+     * 
+     * @param estado
+     * @return 
+     */
     public static boolean editar(int estado) {
         boolean editar = false;
         try {
             Connection conexion = Conexion.obtener();
-            String consulta = "UPDATE periodo SET estado = ? WHERE ( estado = ?)";
+            String consulta = "UPDATE periodo SET estado = ? WHERE ( id = ?)";
             PreparedStatement st = conexion.prepareStatement(consulta);
             st.setInt(1, estado);
             

@@ -2,6 +2,7 @@
 package mx.itson.celfon.persistencias;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -47,4 +48,42 @@ public class LlamadaDAO {
         return llamadas;
     }
     
+    public static boolean guardar(String telefono, int duracion, Date fecha, int idPeriodo){
+        boolean estaGuardado= false;
+        try{
+            Connection conexion= Conexion.obtener();
+            String consulta= "INSERT INTO llamada (telefono, duracion, fecha, idPeriodo) VALUES (?, ?, ?, ?)";
+            PreparedStatement st= conexion.prepareStatement(consulta);
+            st.setString(1, telefono);
+            st.setInt(2, duracion);
+            st.setDate(3, fecha);
+            st.setInt(4, idPeriodo);
+            
+            estaGuardado = st.executeUpdate() == 1;
+            
+            conexion.close();
+            
+        }catch(Exception ex){
+            System.out.println("Error"+ ex.getMessage());
+        }
+        return estaGuardado;
+    }
+    
+    public static boolean eliminar(int id) {
+        
+        boolean eliminar = false;
+        try {
+            Connection conexion = Conexion.obtener();
+            String consulta = "DELETE FROM llamada WHERE id = ? ";
+            PreparedStatement st = conexion.prepareStatement(consulta);
+            st.setInt(1, id);
+
+            eliminar = st.executeUpdate() == 1;
+            conexion.close();
+
+        } catch (Exception ex) {
+            System.out.println("Error" + ex.getMessage());
+        }
+        return eliminar;
+    }
 }
