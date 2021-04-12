@@ -231,7 +231,7 @@ public class VistaPeriodo extends javax.swing.JFrame {
                 periodos=PeriodoDAO.buscar(busquedaEstado, criterio);
         }
         
-        
+        LlenarTabla();
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**

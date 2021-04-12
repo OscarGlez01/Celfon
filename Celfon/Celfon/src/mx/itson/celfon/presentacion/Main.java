@@ -33,7 +33,7 @@ public class Main {
             System.out.println("Nombre "+ c.getNombre());
         }
 */
-        List<Periodo> periodos = PeriodoDAO.buscar("juan", "cl.nombre");
+        List<Periodo> periodos = PeriodoDAO.buscar("2", "p.mes");
         
         for (Periodo p : periodos){
             System.out.println("Nombre "+p.getCliente().getNombre());
