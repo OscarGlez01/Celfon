@@ -3,6 +3,7 @@ package mx.itson.celfon.entidades;
 
 import java.util.List;
 import mx.itson.celfon.enumeradores.EstadoPeriodo;
+import mx.itson.celfon.enumeradores.MesPeriodo;
 
 /**
  * Gestiona las variables id, total, mes y anio de Periodo
@@ -14,7 +15,7 @@ public class Periodo {
     private int id;
     private Cliente cliente;
     private double total;
-    private int mes;
+    private MesPeriodo mes;
     private int anio;
     private EstadoPeriodo estado;
     private List<Llamada> llamadas;
@@ -75,20 +76,7 @@ public class Periodo {
     public void setTotal(double total) {
         this.total = total;
     }
-    /**
-     * Obtiene el valor de Mes
-     * @return Devuelve Mes
-     */
-    public int getMes() {
-        return mes;
-    }
-    /**
-     * Pone el valor de Mes
-     * @param mes 
-     */
-    public void setMes(int mes) {
-        this.mes = mes;
-    }
+    
     /**
      * Obtiene el valor de Anio
      * @return Devuelve Anio
@@ -116,5 +104,13 @@ public class Periodo {
      */
     public void setEstado(EstadoPeriodo estado) {
         this.estado = estado;
+    }
+
+    public MesPeriodo getMes() {
+        return mes;
+    }
+
+    public void setMes(MesPeriodo mes) {
+        this.mes = mes;
     }
 }

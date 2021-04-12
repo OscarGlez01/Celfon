@@ -5,6 +5,7 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import mx.itson.celfon.entidades.Periodo;
 import mx.itson.celfon.enumeradores.EstadoPeriodo;
+import mx.itson.celfon.enumeradores.MesPeriodo;
 import mx.itson.celfon.negocio.PeriodoNegocio;
 import mx.itson.celfon.persistencias.PeriodoDAO;
 
@@ -191,7 +192,17 @@ public class VistaPeriodo extends javax.swing.JFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         int indiceCriterio= cboxCriterio.getSelectedIndex()+1;
         String criterio= PeriodoNegocio.DefinirCriterio(indiceCriterio);
-        periodos=PeriodoDAO.buscar(txfBusqueda.getText(),criterio);
+        switch(criterio){
+            case "cl.nombre":
+                periodos=PeriodoDAO.buscar(txfBusqueda.getText(),criterio);
+            case "p.mes":
+                String busqueda=MesPeriodo.obtenerPorNombre(txfBusqueda.getText());
+                periodos=PeriodoDAO.buscar(busqueda, criterio);
+            case "p.anio":
+                
+            case "p.estado":
+        }
+        
         
         DefaultTableModel modelo = (DefaultTableModel) tblPeriodo.getModel();
 

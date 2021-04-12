@@ -9,6 +9,7 @@ import java.util.List;
 import mx.itson.celfon.entidades.Cliente;
 import mx.itson.celfon.entidades.Periodo;
 import mx.itson.celfon.enumeradores.EstadoPeriodo;
+import mx.itson.celfon.enumeradores.MesPeriodo;
 
 /**
  * Manjea el acceso de datos de la entidad de Periodo
@@ -38,7 +39,7 @@ public class PeriodoDAO {
                    Periodo periodo = new Periodo();
                    periodo.setId(resultset.getInt(1));
                    periodo.setTotal(resultset.getDouble(3));
-                   periodo.setMes(resultset.getInt(4));
+                   periodo.setMes(MesPeriodo.obtenerPorNumero(resultset.getInt(4)));
                    periodo.setAnio(resultset.getInt(5));
                    periodo.setEstado(EstadoPeriodo.obtenerPorNumero(resultset.getInt(6)));
                    
