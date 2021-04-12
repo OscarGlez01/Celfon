@@ -7,13 +7,14 @@ import mx.itson.celfon.entidades.Ciudad;
 import mx.itson.celfon.persistencias.CiudadDAO;
 
 /**
- *
+ * Demuestra los valores de la lista de CiudaDAO existentes
  * @author Oscar González Leyva
  */
 public class VistaCiudad extends javax.swing.JFrame {
     List<Ciudad> ciudades;
     VistaPrincipal main= new VistaPrincipal();
     /**
+     * Actualiza cambios en la Tabla
      * Creates new form Ciudad
      */
     public VistaCiudad() {
@@ -125,10 +126,18 @@ public class VistaCiudad extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Refresca nuevamente los valores de la tabla
+     * @param evt 
+     */
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         RefrescarTabla();
     }//GEN-LAST:event_btnActualizarActionPerformed
 
+    /**
+     * Envia al frame anterior
+     * @param evt 
+     */
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         main.setVisible(true);
         dispose();
