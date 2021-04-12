@@ -36,4 +36,16 @@ public enum EstadoPeriodo {
             }
             return null;
         }
+        
+        public static String obtenerPorNombre(String valor){
+            switch(valor){
+                case "pendiente":
+                    return "1";
+                case "pagado":
+                    return "2";
+                case "cancelado":
+                    return "3";
+            }
+            return null;
+        }
 }

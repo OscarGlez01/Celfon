@@ -52,6 +52,11 @@ public enum MesPeriodo {
             }
             return null;
         }
+    /**
+     * 
+     * @param valor
+     * @return 
+     */
     public static String obtenerPorNombre(String valor){
             switch(valor){
                 case "enero":

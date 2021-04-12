@@ -24,6 +24,9 @@ public class VistaPeriodo extends javax.swing.JFrame {
         LlenarCriterios();
     }
 
+    public void RefrescarTabla(){
+        periodos=PeriodoDAO.buscar("", )
+    }
     private void LlenarCriterios(){
         cboxCriterio.addItem("Nombre");
         cboxCriterio.addItem("Mes");
@@ -189,6 +192,10 @@ public class VistaPeriodo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * 
+     * @param evt 
+     */
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         int indiceCriterio= cboxCriterio.getSelectedIndex()+1;
         String criterio= PeriodoNegocio.DefinirCriterio(indiceCriterio);
@@ -196,11 +203,13 @@ public class VistaPeriodo extends javax.swing.JFrame {
             case "cl.nombre":
                 periodos=PeriodoDAO.buscar(txfBusqueda.getText(),criterio);
             case "p.mes":
-                String busqueda=MesPeriodo.obtenerPorNombre(txfBusqueda.getText());
-                periodos=PeriodoDAO.buscar(busqueda, criterio);
+                String busquedaMes=MesPeriodo.obtenerPorNombre(txfBusqueda.getText());
+                periodos=PeriodoDAO.buscar(busquedaMes, criterio);
             case "p.anio":
-                
+                periodos=PeriodoDAO.buscar(txfBusqueda.getText(), criterio);
             case "p.estado":
+                String busquedaEstado=EstadoPeriodo.obtenerPorNombre(txfBusqueda.getText());
+                periodos=PeriodoDAO.buscar(busquedaEstado, criterio);
         }
         
         
