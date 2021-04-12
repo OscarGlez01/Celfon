@@ -215,7 +215,7 @@ public class AgregarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_txfNombreActionPerformed
 
     /**
-     * Guarda los datos capturados mediante una consulta INSERT INTO en Cliente DAO
+     * Guarda los datos capturados mediante una consulta INSERT INTO en ClienteDAO
      * @param evt parámetro generado por defecto
      */
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
