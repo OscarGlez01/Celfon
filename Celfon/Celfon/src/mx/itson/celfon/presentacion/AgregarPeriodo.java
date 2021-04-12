@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import mx.itson.celfon.entidades.Cliente;
 import mx.itson.celfon.enumeradores.MesPeriodo;
 import mx.itson.celfon.persistencias.ClienteDAO;
+import mx.itson.celfon.persistencias.PeriodoDAO;
 
 /**
  * Reune los campos necesarios para introducir los datos de un nuevo periodo y guarda un registro en la tabla periodo
@@ -195,8 +196,7 @@ public class AgregarPeriodo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadirActionPerformed
-        //PeriodoDAO.guardar(cboxNombre.getSelectedIndex()+1, cboxMes.getSelectedIndex()+1 , Integer.parseInt(txfAnio.getText()));
-        System.out.println(cboxNombre.getSelectedIndex()+1 +" " + cboxMes.getSelectedIndex()+1);
+        PeriodoDAO.guardar(cboxNombre.getSelectedIndex()+1, cboxMes.getSelectedIndex()+1 , Integer.parseInt(txfAnio.getText()));
         JOptionPane.showMessageDialog(rootPane, "El periodo se ha registrado");
         vistaPeriodo.setVisible(true);
         dispose();

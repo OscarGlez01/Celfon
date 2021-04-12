@@ -69,11 +69,11 @@ public class PeriodoDAO {
         boolean estaGuardado= false;
         try{
             Connection conexion= Conexion.obtener();
-            String consulta= "INSERT INTO periodo (idCliente, total, mes, anio, estado) VALUES (?, 400.00, ?, 1)";
+            String consulta= "INSERT INTO periodo (idCliente,  mes, anio, estado, total) VALUES (?, ?, ?, 1, 400.00)";
             PreparedStatement st= conexion.prepareStatement(consulta);
             st.setDouble(1, idCliente);
-            st.setInt(3, mes);
-            st.setInt(4, anio);
+            st.setInt(2, mes);
+            st.setInt(3, anio);
             
             estaGuardado = st.executeUpdate() == 1;
             
