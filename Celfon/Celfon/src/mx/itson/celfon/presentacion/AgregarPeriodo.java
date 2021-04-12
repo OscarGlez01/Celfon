@@ -58,7 +58,6 @@ public class AgregarPeriodo extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         btnAñadir = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
-        btnSeleccionar = new javax.swing.JButton();
         cboxMes = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -111,11 +110,9 @@ public class AgregarPeriodo extends javax.swing.JFrame {
         });
 
         btnCancelar.setText("Cancelar y regresar al menú");
-
-        btnSeleccionar.setText("Seleccionar");
-        btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSeleccionarActionPerformed(evt);
+                btnCancelarActionPerformed(evt);
             }
         });
 
@@ -140,9 +137,7 @@ public class AgregarPeriodo extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cboxNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSeleccionar))
+                                .addComponent(cboxNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel5))
@@ -160,8 +155,7 @@ public class AgregarPeriodo extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(cboxNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSeleccionar))
+                    .addComponent(cboxNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -196,19 +190,16 @@ public class AgregarPeriodo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadirActionPerformed
-        PeriodoDAO.guardar(cboxNombre.getSelectedIndex()+1, cboxMes.getSelectedIndex()+1 , Integer.parseInt(txfAnio.getText()));
+        PeriodoDAO.guardar(cboxNombre.getSelectedIndex()+1, cboxMes.getSelectedIndex()+1, Integer.parseInt(txfAnio.getText()));
         JOptionPane.showMessageDialog(rootPane, "El periodo se ha registrado");
         vistaPeriodo.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnAñadirActionPerformed
 
-    private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
-        ClienteDAO.buscar(cboxNombre.toString(), "cl.nombre");
-        for (Cliente c: clientes){
-            idCliente=c.getId();
-        }
-        JOptionPane.showMessageDialog(rootPane, "El cliente se ha seleccionado");
-    }//GEN-LAST:event_btnSeleccionarActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        vistaPeriodo.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,7 +239,6 @@ public class AgregarPeriodo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAñadir;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnSeleccionar;
     private javax.swing.JComboBox<String> cboxMes;
     private javax.swing.JComboBox<String> cboxNombre;
     private javax.swing.JLabel jLabel1;
