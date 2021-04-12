@@ -17,7 +17,7 @@ public class Conexion {
     public static Connection obtener() {
         Connection connection = null;
         try{
-            connection= DriverManager.getConnection("jdbc:mysql://localhost/cellfondb?user=root&password=neki192837465");
+            connection= DriverManager.getConnection("jdbc:mysql://localhost/celfondb?user=root&password=753896412Ab!");
         }catch(Exception ex){
             System.out.println("Ocurrio un error: " + ex.getMessage());
         }
