@@ -132,6 +132,11 @@ public class VistaPeriodo extends javax.swing.JFrame {
         });
 
         btnEliminar.setText("Eliminar periodo");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         btnCambiarEstado.setText("Cambiar estado");
 
@@ -245,7 +250,6 @@ public class VistaPeriodo extends javax.swing.JFrame {
                 break;
         }
         
-        
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
@@ -253,6 +257,10 @@ public class VistaPeriodo extends javax.swing.JFrame {
         agregar.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        PeriodoDAO.eliminar();
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments
