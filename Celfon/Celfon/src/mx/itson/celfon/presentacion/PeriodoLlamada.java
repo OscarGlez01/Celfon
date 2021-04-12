@@ -9,7 +9,7 @@ import mx.itson.celfon.negocio.LlamadaNegocio;
 import mx.itson.celfon.persistencias.LlamadaDAO;
 
 /**
- *
+ * Administra las llamadas por periodo dentro de AgregarLlamada con los datos obtenidos 
  * @author Oscar González Leyva
  */
 public class PeriodoLlamada extends javax.swing.JFrame {
@@ -17,6 +17,7 @@ public class PeriodoLlamada extends javax.swing.JFrame {
     private int idPeriodo;
     VistaPeriodo periodo= new VistaPeriodo();
     /**
+     * Parsea los datos para visualizar su valor a toString
      * Creates new form PeriodoLlamada
      */
     public PeriodoLlamada() {
@@ -25,7 +26,7 @@ public class PeriodoLlamada extends javax.swing.JFrame {
     }
     
     /**
-     * 
+     * Modifica la tabla con los valores de LlamadaDAO y los agrega para visualizar los datos obtenidos
      * @param filtro 
      */
     public void LlenarTabla(String filtro){
@@ -176,7 +177,10 @@ public class PeriodoLlamada extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Envia al frame de AgregarLlamada para obtener nuevos datos de Llamada
+     * @param evt 
+     */
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         AgregarLlamada agregarLlamada = new AgregarLlamada();
         agregarLlamada.ObtenerPeriodo(Integer.parseInt(tblLlamada.getValueAt(tblLlamada.getSelectedRow(), 4).toString()));
@@ -184,6 +188,10 @@ public class PeriodoLlamada extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
+    /**
+     * Elimina todos los datos existentes seleccionados y renueva la vista de la tabla con los valores de LlamadaDAO
+     * @param evt 
+     */
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         int idLlamada= Integer.parseInt(tblLlamada.getValueAt(tblLlamada.getSelectedRow(), 3).toString());
         LlamadaDAO.eliminar(idLlamada);
@@ -191,6 +199,10 @@ public class PeriodoLlamada extends javax.swing.JFrame {
         LlenarTabla(tblLlamada.getValueAt(tblLlamada.getSelectedRow(), 4).toString());
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    /**
+     * Envia al frame de menu de periodo
+     * @param evt 
+     */
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         periodo.setVisible(true);
         dispose();
@@ -260,10 +272,18 @@ public class PeriodoLlamada extends javax.swing.JFrame {
         this.filtro = filtro;
     }
 
+    /**
+     * Obtiene el valor del periodo de consulta
+     * @return el valor periodo obtenido desde la selección en la vista anterior
+     */
     public int getIdPeriodo() {
         return idPeriodo;
     }
 
+    /**
+     * Asigna el valor para Periodo
+     * @param idPeriodo Es el valor que completa la consulta de busqueda para las llamadas
+     */
     public void setIdPeriodo(int idPeriodo) {
         this.idPeriodo = idPeriodo;
     }
