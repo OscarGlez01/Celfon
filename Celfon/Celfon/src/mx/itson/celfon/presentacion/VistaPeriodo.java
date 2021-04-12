@@ -35,7 +35,9 @@ public class VistaPeriodo extends javax.swing.JFrame {
         modelo.setRowCount(0);
 
         for (Periodo periodo : periodos) {
-            modelo.addRow(new Object[]{periodo.getCliente().getNombre(),
+            modelo.addRow(new Object[]{
+                periodo.getId(),
+                periodo.getCliente().getNombre(),
                 periodo.getMes(),
                 periodo.getAnio(),
                 periodo.getEstado(),
@@ -112,7 +114,7 @@ public class VistaPeriodo extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Cliente", "Mes", "Año", "Estado", "Total"
+                "ID", "Cliente", "Mes", "Año", "Estado", "Total"
             }
         ));
         jScrollPane1.setViewportView(tblPeriodo);
@@ -125,17 +127,17 @@ public class VistaPeriodo extends javax.swing.JFrame {
         });
 
         btnAgregar.setText("Agregar periodo");
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
-            }
-        });
 
         btnEliminar.setText("Eliminar periodo");
 
         btnCambiarEstado.setText("Cambiar estado");
 
         btnConsultar.setText("Consultar / Modificar periodo");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarActionPerformed(evt);
+            }
+        });
 
         btnRegresar.setText("Regresar al menú principal");
 
@@ -248,11 +250,9 @@ public class VistaPeriodo extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        AgregarPeriodo agregar= new AgregarPeriodo();
-        agregar.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnAgregarActionPerformed
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnConsultarActionPerformed
 
     /**
      * @param args the command line arguments
