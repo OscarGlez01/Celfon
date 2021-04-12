@@ -37,6 +37,11 @@ public enum EstadoPeriodo {
             return null;
         }
         
+        /**
+         * Obtiene un string simplificado para una consulta
+         * @param valor el estado introducido por el cliente
+         * @return un valor string dependiendo el caso.
+         */
         public static String obtenerPorNombre(String valor){
             switch(valor){
                 case "pendiente":

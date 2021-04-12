@@ -106,10 +106,18 @@ public class Periodo {
         this.estado = estado;
     }
 
+    /**
+     * Obtiene el valor de mes
+     * @return el mes del periodo
+     */
     public MesPeriodo getMes() {
         return mes;
     }
 
+    /**
+     * Asigna el valor de mes
+     * @param mes el mes en el que desenvuelve el periodo en cuestión
+     */
     public void setMes(MesPeriodo mes) {
         this.mes = mes;
     }

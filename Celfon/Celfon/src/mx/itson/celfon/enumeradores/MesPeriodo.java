@@ -53,9 +53,9 @@ public enum MesPeriodo {
             return null;
         }
     /**
-     * 
-     * @param valor
-     * @return 
+     * Obtiene un string simplificado para una consulta
+     * @param valor el estado introducido por el cliente
+     * @return un valor string dependiendo el caso.
      */
     public static String obtenerPorNombre(String valor){
             switch(valor){
