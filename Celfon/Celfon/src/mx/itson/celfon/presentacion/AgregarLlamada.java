@@ -6,7 +6,8 @@ import javax.swing.JOptionPane;
 import mx.itson.celfon.persistencias.LlamadaDAO;
 
 /**
- *
+ * Recibe los datos de una nueva llamada respondiendo los campos necesarios y añadiendolos a la Tabla de PeriodoLlamada
+ * junto con el periodo agregado
  * @author Oscar González Leyva
  */
 public class AgregarLlamada extends javax.swing.JFrame {
@@ -19,6 +20,11 @@ public class AgregarLlamada extends javax.swing.JFrame {
         initComponents();
     }
 
+    /**
+     * Obtiene el periodo con dato valor
+     * @param valor
+     * @return Devuelve un periodo
+     */
     public int ObtenerPeriodo(int valor){
         periodo=valor;
         return periodo;
@@ -167,7 +173,10 @@ public class AgregarLlamada extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * Guarda los datos mediante una consulta INSERT INTO en LlamadaDAO
+ * @param evt parámetro generado por defecto
+ */
     private void btnAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadirActionPerformed
         LlamadaDAO.guardar(txfTelefono.getText(),Integer.parseInt(txfDuracion.getText()), Date.valueOf(txfFecha.getText()), periodo);
         JOptionPane.showMessageDialog(rootPane, "La llamada se ha registrado con exito");
@@ -175,6 +184,10 @@ public class AgregarLlamada extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnAñadirActionPerformed
 
+    /**
+     * Anula las acciones realizadas en el frame refrescando la misma
+     * @param evt parámetro generado por defecto
+     */
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         periodoLlamada.setVisible(true);
         dispose();
