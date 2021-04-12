@@ -95,7 +95,7 @@ public class PeriodoDAO {
         boolean eliminar = false;
         try {
             Connection conexion = Conexion.obtener();
-            String consulta = "DELETE FROM llamada WHERE id = ? ";
+            String consulta = "DELETE FROM periodo WHERE id = ? ";
             PreparedStatement st = conexion.prepareStatement(consulta);
             st.setInt(1, id);
 

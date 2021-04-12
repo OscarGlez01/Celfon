@@ -13,6 +13,7 @@ import mx.itson.celfon.persistencias.LlamadaDAO;
  */
 public class PeriodoLlamada extends javax.swing.JFrame {
     private String filtro;
+    private String idPeriodo;
     /**
      * Creates new form PeriodoLlamada
      */
@@ -35,7 +36,8 @@ public class PeriodoLlamada extends javax.swing.JFrame {
                 llamada.getTelefono(),
                 LlamadaNegocio.ConvertirDuracion(llamada.getDuracion()),
                 llamada.getFecha(),
-                llamada.getId()
+                llamada.getId(),
+                llamada.getPeriodo().getId()
             });
         }
         tblLlamada.setModel(modelo);
@@ -80,7 +82,7 @@ public class PeriodoLlamada extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(111, 111, 111))
+                .addGap(138, 138, 138))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,7 +97,7 @@ public class PeriodoLlamada extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Número", "Duración", "Fecha y hora", "id"
+                "Número", "Duración", "Fecha y hora", "id", "idPeriodo"
             }
         ));
         jScrollPane1.setViewportView(tblLlamada);
@@ -127,16 +129,18 @@ public class PeriodoLlamada extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(103, 103, 103)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(135, 135, 135))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,7 +176,10 @@ public class PeriodoLlamada extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        
+        AgregarLlamada agregarLlamada = new AgregarLlamada();
+        agregarLlamada.ObtenerPeriodo(Integer.parseInt(tblLlamada.getValueAt(tblLlamada.getSelectedRow(), 4).toString()));
+        agregarLlamada.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -245,5 +252,13 @@ public class PeriodoLlamada extends javax.swing.JFrame {
      */
     public void setFiltro(String filtro) {
         this.filtro = filtro;
+    }
+
+    public String getIdPeriodo() {
+        return idPeriodo;
+    }
+
+    public void setIdPeriodo(String idPeriodo) {
+        this.idPeriodo = idPeriodo;
     }
 }

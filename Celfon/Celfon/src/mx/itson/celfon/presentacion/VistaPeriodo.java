@@ -294,6 +294,8 @@ public class VistaPeriodo extends javax.swing.JFrame {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         int idPeriodo= Integer.parseInt(tblPeriodo.getValueAt(tblPeriodo.getSelectedRow(), 5).toString());
         PeriodoDAO.eliminar(idPeriodo);
+        periodos=PeriodoDAO.buscar("", "cl.nombre");
+        LlenarTabla();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
@@ -308,6 +310,8 @@ public class VistaPeriodo extends javax.swing.JFrame {
         int idPeriodo= Integer.parseInt(tblPeriodo.getValueAt(tblPeriodo.getSelectedRow(), 5).toString());
         int estado=cboxEstado.getSelectedIndex()+2;
         PeriodoDAO.editar(estado,idPeriodo);
+        periodos=PeriodoDAO.buscar("", "cl.nombre");
+        LlenarTabla();
     }//GEN-LAST:event_btnCambiarEstadoActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
