@@ -1,21 +1,39 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package mx.itson.celfon.presentacion;
+
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import mx.itson.celfon.entidades.Llamada;
+import mx.itson.celfon.persistencias.LlamadaDAO;
 
 /**
  *
- * @author González
+ * @author Oscar González Leyva
  */
-public class PeriodoLLamada extends javax.swing.JFrame {
-
+public class PeriodoLlamada extends javax.swing.JFrame {
+    private String filtro;
     /**
-     * Creates new form PeriodoLLamada
+     * Creates new form PeriodoLlamada
      */
-    public PeriodoLLamada() {
+    public PeriodoLlamada() {
         initComponents();
+        
+        
+    }
+    
+    public void LlenarTabla(String filtro){
+        DefaultTableModel modelo = (DefaultTableModel) tblLlamada.getModel();
+        List<Llamada> llamadas = LlamadaDAO.buscar(filtro);
+        modelo.setRowCount(0);
+        
+        for (Llamada llamada : llamadas) {
+            modelo.addRow(new Object[]{
+                llamada.getTelefono(),
+                llamada.getDuracion(),
+                llamada.getFecha()
+            });
+        }
+        tblLlamada.setModel(modelo);
     }
 
     /**
@@ -153,20 +171,21 @@ public class PeriodoLLamada extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PeriodoLLamada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PeriodoLlamada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PeriodoLLamada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PeriodoLlamada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PeriodoLLamada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PeriodoLlamada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PeriodoLLamada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PeriodoLlamada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PeriodoLLamada().setVisible(true);
+                new PeriodoLlamada().setVisible(true);
             }
         });
     }
@@ -182,4 +201,12 @@ public class PeriodoLLamada extends javax.swing.JFrame {
     private javax.swing.JTable tblLlamada;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
+
+    public String getFiltro() {
+        return filtro;
+    }
+
+    public void setFiltro(String filtro) {
+        this.filtro = filtro;
+    }
 }

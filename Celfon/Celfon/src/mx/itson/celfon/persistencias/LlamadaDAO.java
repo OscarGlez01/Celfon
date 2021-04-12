@@ -25,7 +25,7 @@ public class LlamadaDAO {
                         + " WHERE idPeriodo = ?");
                 
                 PreparedStatement st = conexion.prepareStatement(consulta);
-                st.setString(1, "%" + filtro + "%");
+                st.setString(1, filtro);
                 ResultSet resultset= st.executeQuery();
                 
                 while(resultset.next()){
@@ -38,6 +38,7 @@ public class LlamadaDAO {
                    Periodo periodo = new Periodo();
                    periodo.setId(resultset.getInt(5));
                    
+                   llamada.setPeriodo(periodo);
                    llamadas.add(llamada);
                 }
                 conexion.close();

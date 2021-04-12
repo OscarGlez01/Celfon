@@ -7,9 +7,19 @@ package mx.itson.celfon.negocio;
  */
 public class LlamadaNegocio {
     
-    public int validarDuracion(int result){
-    
-        return result;
+    /**
+     * 
+     * @param duracion
+     * @return 
+     */
+    public static String ConvertirDuracion(int duracion){
+        int hor,min,seg;
+        
+        hor=duracion/3600;
+        min=(duracion-(3600*hor))/60;
+        seg=duracion-((hor*3600)+(min*60));
+        String resultado=(hor+"h "+min+"m "+seg+"s");
+        return resultado;
 } 
     
 }

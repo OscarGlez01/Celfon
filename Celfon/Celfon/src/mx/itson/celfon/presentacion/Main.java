@@ -4,9 +4,12 @@ package mx.itson.celfon.presentacion;
 import java.util.List;
 import mx.itson.celfon.entidades.Estado;
 import mx.itson.celfon.entidades.Cliente;
+import mx.itson.celfon.entidades.Llamada;
 import mx.itson.celfon.entidades.Periodo;
+import mx.itson.celfon.negocio.LlamadaNegocio;
 import mx.itson.celfon.persistencias.ClienteDAO;
 import mx.itson.celfon.persistencias.EstadoDAO;
+import mx.itson.celfon.persistencias.LlamadaDAO;
 import mx.itson.celfon.persistencias.PeriodoDAO;
 
 /**
@@ -33,11 +36,22 @@ public class Main {
             System.out.println("Nombre "+ c.getNombre());
         }
 */
+        /*
         List<Periodo> periodos = PeriodoDAO.buscar("2", "p.mes");
         
         for (Periodo p : periodos){
             System.out.println("Nombre "+p.getCliente().getNombre());
         }
+        */
+        
+        /*
+        List<Llamada> llamadas = LlamadaDAO.buscar("1");
+        for (Llamada l : llamadas){
+            System.out.println("telefono "+l.getTelefono());
+        }
+*/
+        String resultado=LlamadaNegocio.ConvertirDuracion(180);
+        System.out.println(resultado);
     }
     
 }

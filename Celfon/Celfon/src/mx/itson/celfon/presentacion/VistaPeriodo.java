@@ -35,11 +35,13 @@ public class VistaPeriodo extends javax.swing.JFrame {
         modelo.setRowCount(0);
 
         for (Periodo periodo : periodos) {
+            
             modelo.addRow(new Object[]{periodo.getCliente().getNombre(),
                 periodo.getMes(),
                 periodo.getAnio(),
                 periodo.getEstado(),
-                periodo.getTotal()
+                periodo.getTotal(),
+                periodo.getId()
             });
         }
     }
@@ -112,9 +114,17 @@ public class VistaPeriodo extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Cliente", "Mes", "Año", "Estado", "Total"
+                "Cliente", "Mes", "Año", "Estado", "Total", "id"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblPeriodo);
 
         btnBuscar.setText("Buscar");
@@ -141,6 +151,11 @@ public class VistaPeriodo extends javax.swing.JFrame {
         btnCambiarEstado.setText("Cambiar estado");
 
         btnConsultar.setText("Consultar / Modificar periodo");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarActionPerformed(evt);
+            }
+        });
 
         btnRegresar.setText("Regresar al menú principal");
 
@@ -259,8 +274,18 @@ public class VistaPeriodo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        PeriodoDAO.eliminar();
+        int fila= tblPeriodo.getSelectedRow();
+        //int idPeriodo= tblPeriodo.getValueAt(fila, 0);
+        //PeriodoDAO.eliminar();
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+        PeriodoLlamada periodoLlamada = new PeriodoLlamada();
+        periodoLlamada.LlenarTabla(tblPeriodo.getValueAt(tblPeriodo.getSelectedRow(), 5).toString());
+        periodoLlamada.setVisible(true);
+        dispose();
+        
+    }//GEN-LAST:event_btnConsultarActionPerformed
 
     /**
      * @param args the command line arguments
