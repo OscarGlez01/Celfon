@@ -15,7 +15,7 @@ public class VistaCiudad extends javax.swing.JFrame {
     VistaPrincipal main= new VistaPrincipal();
     /**
      * Actualiza cambios en la Tabla
-     * Creates new form Ciudad
+     * Creates new form Ciudad e inicia los componentes del frame
      */
     public VistaCiudad() {
         initComponents();
