@@ -3,7 +3,7 @@ package mx.itson.celfon.presentacion;
 
 
 /**
- *
+ * Inicio de aplicacion y herramientas
  * @author Oscar González Leyva
  */
 public class VistaPrincipal extends javax.swing.JFrame {
@@ -164,18 +164,30 @@ public class VistaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Envia al frame VistaEstado para gestionar un Estado
+     * @param evt 
+     */
     private void btnEstadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstadosActionPerformed
         VistaEstado vistaEstado = new VistaEstado();
         vistaEstado.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnEstadosActionPerformed
 
+    /**
+     * Envia al frame VistaPeriodo para gestionar un Periodo
+     * @param evt 
+     */
     private void btnPeriodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPeriodosActionPerformed
         VistaPeriodo vistaPeriodo = new VistaPeriodo();
         vistaPeriodo.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnPeriodosActionPerformed
 
+    /**
+     * Envia al frame VistaCliente para gestionar un Cliente
+     * @param evt 
+     */
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
         VistaCliente vistaCliente = new VistaCliente();
         vistaCliente.setVisible(true);
@@ -183,12 +195,20 @@ public class VistaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnClientesActionPerformed
 
+    /**
+     * Envia al frame VistaCiudad para gestionar un Ciudad
+     * @param evt 
+     */
     private void btnCiudadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCiudadesActionPerformed
         VistaCiudad vistaCiudad = new VistaCiudad();
         vistaCiudad.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnCiudadesActionPerformed
 
+    /**
+     * Salir de la aplicacion.
+     * @param evt 
+     */
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
