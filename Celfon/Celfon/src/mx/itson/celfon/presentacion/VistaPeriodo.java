@@ -17,16 +17,35 @@ public class VistaPeriodo extends javax.swing.JFrame {
     List<Periodo> periodos;
     
     /**
-     * Creates new form VistaPeriodo
+     * Creates new form VistaPeriodo, inicia los componentes y refresca la tabla con una vista general
      */
     public VistaPeriodo() {
         initComponents();
+        periodos=PeriodoDAO.buscar("", "cl.nombre");
         LlenarCriterios();
+        LlenarTabla();
     }
 
-    public void RefrescarTabla(){
-        periodos=PeriodoDAO.buscar("", "cl.nombre");
+    /**
+     * 
+     */
+    public void LlenarTabla(){
+        DefaultTableModel modelo = (DefaultTableModel) tblPeriodo.getModel();
+
+        modelo.setRowCount(0);
+
+        for (Periodo periodo : periodos) {
+            modelo.addRow(new Object[]{periodo.getCliente().getNombre(),
+                periodo.getMes(),
+                periodo.getAnio(),
+                periodo.getEstado(),
+                periodo.getTotal()
+            });
+        }
     }
+    /**
+     * 
+     */
     private void LlenarCriterios(){
         cboxCriterio.addItem("Nombre");
         cboxCriterio.addItem("Mes");
@@ -213,18 +232,6 @@ public class VistaPeriodo extends javax.swing.JFrame {
         }
         
         
-        DefaultTableModel modelo = (DefaultTableModel) tblPeriodo.getModel();
-
-        modelo.setRowCount(0);
-
-        for (Periodo periodo : periodos) {
-            modelo.addRow(new Object[]{periodo.getCliente().getNombre(),
-                periodo.getMes(),
-                periodo.getAnio(),
-                periodo.getEstado(),
-                periodo.getTotal()
-            });
-        }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
