@@ -16,7 +16,7 @@ public class EditarCliente extends javax.swing.JFrame {
     List<Ciudad> ciudades;
     VistaCliente vistaCliente= new VistaCliente();
     /**
-     * Creates new form EditarCliente
+     * Creates new form EditarCliente e inicia los componentes en el frame
      */
     public EditarCliente() {
         initComponents();
@@ -234,7 +234,7 @@ public class EditarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditarActionPerformed
 
     /**
-     * 
+     * Omite todos los datos existentes y renueva la vista de vistaCliente
      * @param evt 
      */
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -243,7 +243,7 @@ public class EditarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
-     * 
+     * Ejecuta y muestra los datos compatibles a la lista de clientes agregados
      * @param evt 
      */
     private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
