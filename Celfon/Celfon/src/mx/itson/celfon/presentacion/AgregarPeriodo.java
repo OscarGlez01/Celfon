@@ -10,7 +10,7 @@ import mx.itson.celfon.persistencias.ClienteDAO;
 import mx.itson.celfon.persistencias.PeriodoDAO;
 
 /**
- * Reune los campos necesarios para introducir los datos de un nuevo periodo y guarda un registro en la tabla periodo
+ * Reune los campos necesarios para introducir los datos de un nuevo periodo y guarda un registro en la tabla de PeriodoLlamada
  * @author Oscar González Leyva
  */
 public class AgregarPeriodo extends javax.swing.JFrame {
@@ -26,6 +26,9 @@ public class AgregarPeriodo extends javax.swing.JFrame {
         LlenarCboxMes();
     }
 
+    /**
+     * Coloca los valores encontrados en ClienteDAO y los visualiza en un ComboBox de Clientes
+     */
     public void LlenarCboxCliente(){
         clientes=ClienteDAO.buscar("", "cl.id");
         for (Cliente c: clientes){
@@ -33,6 +36,9 @@ public class AgregarPeriodo extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Coloca los valores pre añadidos en PeriodoDAO y los visualiza en un ComboBox de Meses
+     */
     public void LlenarCboxMes(){
         cboxMes.setModel(new DefaultComboBoxModel(MesPeriodo.values()));
     }
@@ -189,6 +195,10 @@ public class AgregarPeriodo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Guarda los datos definidos en PeriodoDAO y regresa a la vista periodo nuevamente
+     * @param evt 
+     */
     private void btnAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAñadirActionPerformed
         PeriodoDAO.guardar(cboxNombre.getSelectedIndex()+1, cboxMes.getSelectedIndex()+1, Integer.parseInt(txfAnio.getText()));
         JOptionPane.showMessageDialog(rootPane, "El periodo se ha registrado");
@@ -196,6 +206,10 @@ public class AgregarPeriodo extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnAñadirActionPerformed
 
+    /**
+     * Omite los datos definidos y renueva la vista de AgregarPeriodo
+     * @param evt 
+     */
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         vistaPeriodo.setVisible(true);
         dispose();
