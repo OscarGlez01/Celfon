@@ -36,8 +36,8 @@ public class VistaCliente extends javax.swing.JFrame {
                 cliente.getDireccion(),
                 cliente.getTelefono(),
                 cliente.getCiudad().getNombre(),
-                cliente.getCiudad().getEstado().getNombre(),
                 cliente.getCiudad().getEstado().getNombre()
+                
             });
         }
     }

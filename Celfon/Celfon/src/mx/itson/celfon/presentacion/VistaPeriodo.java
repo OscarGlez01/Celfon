@@ -25,7 +25,7 @@ public class VistaPeriodo extends javax.swing.JFrame {
     }
 
     public void RefrescarTabla(){
-        periodos=PeriodoDAO.buscar("", )
+        periodos=PeriodoDAO.buscar("", "cl.nombre");
     }
     private void LlenarCriterios(){
         cboxCriterio.addItem("Nombre");
