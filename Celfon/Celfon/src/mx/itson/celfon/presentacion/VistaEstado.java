@@ -7,14 +7,14 @@ import mx.itson.celfon.entidades.Estado;
 import mx.itson.celfon.persistencias.EstadoDAO;
 
 /**
- *
+ * Visualiza los estados existentes en EstadoDAO
  * @author Oscar González Leyva
  */
 public class VistaEstado extends javax.swing.JFrame {
     List<Estado> estados;
     VistaPrincipal main = new VistaPrincipal();
     /**
-     * Creates new form Estado
+     * Creates new form Estado e inicia los componentes del frame
      */
     public VistaEstado() {
         initComponents();
