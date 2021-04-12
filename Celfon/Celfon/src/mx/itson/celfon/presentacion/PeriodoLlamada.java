@@ -2,6 +2,7 @@
 package mx.itson.celfon.presentacion;
 
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import mx.itson.celfon.entidades.Llamada;
 import mx.itson.celfon.negocio.LlamadaNegocio;
@@ -13,13 +14,14 @@ import mx.itson.celfon.persistencias.LlamadaDAO;
  */
 public class PeriodoLlamada extends javax.swing.JFrame {
     private String filtro;
-    private String idPeriodo;
+    private int idPeriodo;
+    VistaPeriodo periodo= new VistaPeriodo();
     /**
      * Creates new form PeriodoLlamada
      */
     public PeriodoLlamada() {
         initComponents();
-        
+        idPeriodo=Integer.parseInt(tblLlamada.getValueAt(4, 1).toString());
     }
     
     /**
@@ -59,7 +61,7 @@ public class PeriodoLlamada extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblLlamada = new javax.swing.JTable();
         btnAgregar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
         btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -109,10 +111,10 @@ public class PeriodoLlamada extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Eliminar llamada");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminar.setText("Eliminar llamada");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnEliminarActionPerformed(evt);
             }
         });
 
@@ -137,7 +139,7 @@ public class PeriodoLlamada extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(135, 135, 135))))
@@ -151,7 +153,7 @@ public class PeriodoLlamada extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
                 .addContainerGap())
@@ -182,12 +184,16 @@ public class PeriodoLlamada extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        int idLlamada= Integer.parseInt(tblLlamada.getValueAt(tblLlamada.getSelectedRow(), 3).toString());
+        LlamadaDAO.eliminar(idLlamada);
+        JOptionPane.showMessageDialog(rootPane, "La llamada se eliminado del registro");
+        LlenarTabla(tblLlamada.getValueAt(tblLlamada.getSelectedRow(), 4).toString());
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-        // TODO add your handling code here:
+        periodo.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**
@@ -228,8 +234,8 @@ public class PeriodoLlamada extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnRegresar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -254,11 +260,13 @@ public class PeriodoLlamada extends javax.swing.JFrame {
         this.filtro = filtro;
     }
 
-    public String getIdPeriodo() {
+    public int getIdPeriodo() {
         return idPeriodo;
     }
 
-    public void setIdPeriodo(String idPeriodo) {
+    public void setIdPeriodo(int idPeriodo) {
         this.idPeriodo = idPeriodo;
     }
+
+    
 }

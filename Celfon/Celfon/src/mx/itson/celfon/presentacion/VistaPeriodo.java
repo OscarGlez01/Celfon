@@ -2,6 +2,7 @@
 package mx.itson.celfon.presentacion;
 
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import mx.itson.celfon.entidades.Periodo;
 import mx.itson.celfon.enumeradores.EstadoPeriodo;
@@ -294,6 +295,7 @@ public class VistaPeriodo extends javax.swing.JFrame {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         int idPeriodo= Integer.parseInt(tblPeriodo.getValueAt(tblPeriodo.getSelectedRow(), 5).toString());
         PeriodoDAO.eliminar(idPeriodo);
+        JOptionPane.showMessageDialog(rootPane, "El periodo se ha eliminado del registro");
         periodos=PeriodoDAO.buscar("", "cl.nombre");
         LlenarTabla();
     }//GEN-LAST:event_btnEliminarActionPerformed
@@ -310,6 +312,7 @@ public class VistaPeriodo extends javax.swing.JFrame {
         int idPeriodo= Integer.parseInt(tblPeriodo.getValueAt(tblPeriodo.getSelectedRow(), 5).toString());
         int estado=cboxEstado.getSelectedIndex()+2;
         PeriodoDAO.editar(estado,idPeriodo);
+        JOptionPane.showMessageDialog(rootPane, "El estado del periodo se ha modificado con exito");
         periodos=PeriodoDAO.buscar("", "cl.nombre");
         LlenarTabla();
     }//GEN-LAST:event_btnCambiarEstadoActionPerformed
