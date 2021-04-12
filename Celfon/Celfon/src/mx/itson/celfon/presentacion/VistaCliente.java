@@ -14,7 +14,7 @@ public class VistaCliente extends javax.swing.JFrame {
     List<Cliente> clientes;
     VistaPrincipal main = new VistaPrincipal();
     /**
-     * Creates new form Cliente 
+     * Creates new form Cliente e inicia los componentes del frame
      */
     public VistaCliente() {
         initComponents();
