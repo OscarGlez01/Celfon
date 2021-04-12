@@ -3,8 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/osc04/OneDrive/Documentos/BDA%20Asignación%203/Celfon/Celfon/Celfon/src/mx/itson/celfon/persistencias/CiudadDAO.java</file>
-            <file>file:/C:/Users/osc04/OneDrive/Documentos/BDA%20Asignación%203/Celfon/Celfon/Celfon/src/mx/itson/celfon/persistencias/ClienteDAO.java</file>
+            <file>file:/C:/Users/jesus/Desktop/BDA/Celfon/Celfon/Celfon/src/mx/itson/celfon/entidades/Cliente.java</file>
+            <file>file:/C:/Users/jesus/Desktop/BDA/Celfon/Celfon/Celfon/src/mx/itson/celfon/persistencias/CiudadDAO.java</file>
+            <file>file:/C:/Users/jesus/Desktop/BDA/Celfon/Celfon/Celfon/src/mx/itson/celfon/presentacion/VistaCiudad.java</file>
+            <file>file:/C:/Users/jesus/Desktop/BDA/Celfon/Celfon/Celfon/src/mx/itson/celfon/presentacion/Main.java</file>
+            <file>file:/C:/Users/jesus/Desktop/BDA/Celfon/Celfon/Celfon/src/mx/itson/celfon/presentacion/VistaCliente.java</file>
+            <file>file:/C:/Users/jesus/Desktop/BDA/Celfon/Celfon/Celfon/src/mx/itson/celfon/entidades/Llamada.java</file>
+            <file>file:/C:/Users/jesus/Desktop/BDA/Celfon/Celfon/Celfon/src/mx/itson/celfon/persistencias/LlamadaDAO.java</file>
+            <file>file:/C:/Users/jesus/Desktop/BDA/Celfon/Celfon/Celfon/src/mx/itson/celfon/persistencias/ClienteDAO.java</file>
+            <file>file:/C:/Users/jesus/Desktop/BDA/Celfon/Celfon/Celfon/src/mx/itson/celfon/enumeradores/EstadoPeriodo.java</file>
+            <file>file:/C:/Users/jesus/Desktop/BDA/Celfon/Celfon/Celfon/src/mx/itson/celfon/entidades/Ciudad.java</file>
+            <file>file:/C:/Users/jesus/Desktop/BDA/Celfon/Celfon/Celfon/src/mx/itson/celfon/enumeradores/MesPeriodo.java</file>
+            <file>file:/C:/Users/jesus/Desktop/BDA/Celfon/Celfon/Celfon/src/mx/itson/celfon/presentacion/AgregarCliente.java</file>
+            <file>file:/C:/Users/jesus/Desktop/BDA/Celfon/Celfon/Celfon/src/mx/itson/celfon/presentacion/EliminarCliente.java</file>
+            <file>file:/C:/Users/jesus/Desktop/BDA/Celfon/Celfon/Celfon/src/mx/itson/celfon/presentacion/EditarCliente.java</file>
+            <file>file:/C:/Users/jesus/Desktop/BDA/Celfon/Celfon/Celfon/src/mx/itson/celfon/entidades/Periodo.java</file>
+            <file>file:/C:/Users/jesus/Desktop/BDA/Celfon/Celfon/Celfon/src/mx/itson/celfon/presentacion/VistaEstado.java</file>
+            <file>file:/C:/Users/jesus/Desktop/BDA/Celfon/Celfon/Celfon/src/mx/itson/celfon/negocio/LlamadaNegocio.java</file>
+            <file>file:/C:/Users/jesus/Desktop/BDA/Celfon/Celfon/Celfon/src/mx/itson/celfon/entidades/Estado.java</file>
         </group>
     </open-files>
 </project-private>
